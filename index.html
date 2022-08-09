@@ -32,9 +32,10 @@
       margin: 0;
       box-sizing: border-box;
     }
+    
     :root {
       --red: #d71920;
-      /* --secondRed: #e64e19; */
+      --secondRed: #e64e19;
       --lightGrey: #191b2833;
       --bgGrey: #f7f7f7;
       --darkBlue: #191b28;
@@ -293,6 +294,9 @@
     .contentTwo .content p.subTitle {
       color: white;
     }
+    .contentTwo .content p.subTitle{
+      color: #DFDFE1;
+    }
     .subTitleWrap{
       justify-content: space-between;
     }
@@ -305,12 +309,88 @@
       margin-right: 0.5rem;
     }
     /* 手機版資訊card */
+    .scheduleCardWrap {
+      /* height: 575px; */
+      /* overflow: hidden; */
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
     .scheduleCard{
-      width: 343px;
+      width: 100%;
+      max-width: 500px;
+      min-width: 343px;
       height: 175px;
       background-color: white;
+      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+    }
+    .scheduleCard div{
+      display: flex;
+    }
+    .scheduleCard *> p{
+      margin-bottom: 0;
+    }
+    .scheduleCard .placeWrap a,
+    .scheduleCard span{
+      font-size: 12px;
+      color: #969696;
+      text-decoration: none;
+    }
+    .scheduleCard .title{
+      padding: 0.5rem;
+      height: 40px;
+      background-color: var(--fontGrey);
+      border: 1px solid white;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .scheduleCard .title span{
+      font-size: 14px;
+      color: white;
+    }
+    .scheduleCard .topicWrap{
+      margin: 0.5rem;
+      height: 90px;
+      border-bottom: 1px solid var(--lightGrey);
+    }
+    .speaker{
+      width: 30%;
+      border-left: 1px solid var(--lightGrey);
+    }
+    .scheduleCard .topicWrap .topic{
+      width: 70%;
+    }
+    .scheduleCard .placeWrap{
+      padding: 0rem 1.5rem 0 0.5rem;
+      color: var(--fontGrey);
+    }
+    .scheduleCard .placeWrap a i{
+      color: var(--red);
+      font-size: 12px;
+      margin-right: 10px;
+    }
+    /* 展開表格 */
+    .cardToggleBtn{
+      text-align: center;
+      color: var(--secondRed);
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .cardToggleBtn i{
+      margin-right: 1rem;
+      transition: .3s;
+    }
+    .cardToggleBtn.active i{
+      transform:  rotate(180deg)
 
     }
+
     /* 表格 */
     .contentTwo .content table {
       background-color: white;
@@ -528,6 +608,12 @@
       .contentTwo .content table{
         display: none;
       }
+      .scheduleCardWrap {
+        display: flex;
+      }
+      .scheduleCard{
+        display: block;
+      }
     }
   </style>
   <body>
@@ -642,36 +728,360 @@
             </a>
           </div>
           <!-- mobile infoCard -->
-
-          <div class="scheduleCard">
-            <div class="title">
-              <p>9月 20日 14:45 - 15:15</p>
-              <span>資安威脅研究室</span>
-            </div>
-            <div class="topicWrap">
-              <div class="topic">
-                <span>主題</span>
+          <div class="scheduleCardWrap">
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 20日 14:45 - 15:15</p>
+                <span>資安威脅研究室</span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    現代攻擊者免殺心法： <br />
+                    以時間鉗形戰術打穿即時防護
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>馬聖豪</p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
                 <p>
-                  現代攻擊者免殺心法: <br />
-                  以時間鉗形戰術打穿即時防護
+                  <i class="fa-solid fa-location-dot"></i>
+                  4B 展區會議室
                 </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/720 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
               </div>
-              <div class="speaker">
-                <span>講者</span>
-                <p>馬聖豪</p>
+            
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 21日 16:45 - 17:15 </p>
+                <span>工控安全論壇 </span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    佔有空調控制系統 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>Chicoyama, Canaan Kao </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                    702
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/698 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
               </div>
             </div>
-            <div class="placeWrap">
-              <p>
-                <i class="fa-solid fa-location-dot"></i>
-                4B 展區會議室
-              </p>
-              <span>
-                <i class="fa-solid fa-up-right-from-square"></i
-                >詳細資訊
-              </span>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 21日 16:45 - 17:15</p>
+                <span>資安威脅研究室</span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    文件格式混用在野技巧： <br />
+                    從防守盲點到惡意利用 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>馬聖豪</p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  701D 
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/700 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 09:30 - 10:00</p>
+                <span>Blue Team 論壇</span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    拆解錯誤的組態設定 - <br/>
+                    以 Active Directory 網域環境為例 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>Mars Cheng, Dexter Chen </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  4B 展區會議室
+                </p>
+                <a href="">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 11:20 - 11:50</p>
+                <span>製造業資安論壇 </span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    智慧製造環境中實際面臨的攻擊向量<br/> 
+                    與務實有效的緩解策略 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>Mars Cheng, Canaan Kao </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  701D
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/688 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 11:45 - 12:15</p>
+                <span>資安威脅研究室 </span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    There's no S(Security) in macOS SIP 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>Ta-Lun Yen </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  4A 展區會議室
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/771 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 14:00 - 14:30</p>
+                <span>勒索軟體論壇 </span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    不要再讓勒索軟體 <br/>肆虐關鍵基礎設施了！
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>Mars Cheng, Hank Chen  </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  701C
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/687">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 14:45 - 15:15 </p>
+                <span>資安威脅研究室  </span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    從反組譯建立次世代語意<br/>感知特徵碼引擎 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>
+                    馬聖豪,<br/> Hank Chen
+                  </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  4A 展區會議室
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/736 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 14:45 - 15:15</p>
+                <span>工控安全論壇</span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    對於資料分散式服務的深度安全分析 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>
+                    Ta-Lun Yen 
+                  </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  703
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/772">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 15:45 - 16:15</p>
+                <span>人工智慧資安論壇</span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    HMI影像學習自動偵測工業控制系統安全 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>YenTing Lee, Patrick Kuo </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  701D
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/691 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 16:30 - 17:00 </p>
+                <span>工控安全論壇 </span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    拆解錯誤的組態設定 - <br/>
+                    如何全面接管工業控制系統 － 以三菱電機為例 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>Mars Cheng, Selmon Yang </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  703
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/685 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
+            </div>
+            <div class="scheduleCard mb-3">
+              <div class="title">
+                <p>9月 22日 16:30 - 17:00 </p>
+                <span>Red Team 論壇  </span>
+              </div>
+              <div class="topicWrap">
+                <div class="topic d-flex flex-column">
+                  <span>主題</span>
+                  <p>
+                    我識破你的識破：<br/>LSALSASSUSELESS 
+                  </p>
+                </div>
+                <div class="speaker d-flex flex-column ps-2">
+                  <span>講者</span>
+                  <p>馬聖豪 </p>
+                </div>
+              </div>
+              <div class="placeWrap d-flex justify-content-between align-items-center">
+                <p>
+                  <i class="fa-solid fa-location-dot"></i>
+                  701F
+                </p>
+                <a href="https://cyber.ithome.com.tw/2022/session-page/694 ">
+                  <i class="fa-solid fa-up-right-from-square"></i
+                  >詳細資訊
+                </a>
+              </div>
             </div>
           </div>
+          <div class="cardToggleBtn">
+            <p>
+              <i class="fa-solid fa-chevron-down"></i>展開議程列表
+            </p>
+          </div>
+
           <!-- web table -->
           <table class="table">
             <thead>
