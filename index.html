@@ -27,7 +27,7 @@
   <style>
     /* classname 小駝峰寫法 */
     * {
-      /* border: 1px solid lightblue; */
+      border: 1px solid lightblue;
       padding: 0;
       margin: 0;
       box-sizing: border-box;
@@ -205,6 +205,7 @@
       border-left: 1px solid white;
       margin-bottom: 0;
     }
+    /* 手機版輪播牆 */
     .MbSlickWrap{
       margin-top: -98px;
       display: none;
@@ -292,6 +293,9 @@
     .contentTwo .content p.subTitle {
       color: white;
     }
+    .subTitleWrap{
+      justify-content: space-between;
+    }
     .subTitleWrap a {
       text-decoration: none;
       color: white;
@@ -299,6 +303,13 @@
     .subTitleWrap a i {
       color: var(--red);
       margin-right: 0.5rem;
+    }
+    /* 手機版資訊card */
+    .scheduleCard{
+      width: 343px;
+      height: 175px;
+      background-color: white;
+
     }
     /* 表格 */
     .contentTwo .content table {
@@ -507,6 +518,16 @@
       .MbSlickWrap{
         display: block;
       }
+      /* 議程資訊 RWD*/
+      .formContainer {
+        padding-top: 3rem;
+      }
+      .subTitleWrap{
+        flex-direction: column;
+      }
+      .contentTwo .content table{
+        display: none;
+      }
     }
   </style>
   <body>
@@ -613,13 +634,45 @@
       <div class="formContainer mainContainer">
         <div class="content">
           <h3>議程資訊</h3>
-          <div class="subTitleWrap d-flex justify-content-between mb-3">
+          <div class="subTitleWrap d-flex mb-3">
             <p class="subTitle">TXOne 12場資安專題演講</p>
             <a href="">
               <i class="fa-solid fa-download"></i>
               議程下載
             </a>
           </div>
+          <!-- mobile infoCard -->
+
+          <div class="scheduleCard">
+            <div class="title">
+              <p>9月 20日 14:45 - 15:15</p>
+              <span>資安威脅研究室</span>
+            </div>
+            <div class="topicWrap">
+              <div class="topic">
+                <span>主題</span>
+                <p>
+                  現代攻擊者免殺心法: <br />
+                  以時間鉗形戰術打穿即時防護
+                </p>
+              </div>
+              <div class="speaker">
+                <span>講者</span>
+                <p>馬聖豪</p>
+              </div>
+            </div>
+            <div class="placeWrap">
+              <p>
+                <i class="fa-solid fa-location-dot"></i>
+                4B 展區會議室
+              </p>
+              <span>
+                <i class="fa-solid fa-up-right-from-square"></i
+                >詳細資訊
+              </span>
+            </div>
+          </div>
+          <!-- web table -->
           <table class="table">
             <thead>
               <tr>
@@ -854,7 +907,7 @@
       </div>
     </main>
     <!-- Footer -->
-    <footer>
+    <!-- <footer>
       <div class="mainContainer d-flex">
         <div class="left">
           <div class="brandImg">
@@ -886,7 +939,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
 
     <!-- JS 功能 -->
     <script src="./index.js"></script>
