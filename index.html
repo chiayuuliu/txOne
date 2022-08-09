@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    /* classname 小駝峰寫法 */
+    * {
+      /* border: 1px solid lightblue; */
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --red: #d71920;
+      /* --secondRed: #e64e19; */
+      --lightGrey: #191b2833;
+      --bgGrey: #f7f7f7;
+      --darkBlue: #191b28;
+      --white: #ffffff;
+      --fontGrey: #5e5f68;
+    }
+    /* nav */
+    nav {
+      height: 100px;
+      padding: 0 1rem 1rem;
+      position: fixed;
+      top: 0;
+      background-color: white;
+      right: 0;
+      left: 0;
+      z-index: 10;
+    }
+    /* 手機版分享連結btn */
+    .MBshareLink {
+      display: none;
+    }
+    .MBshareLink a {
+      width: 35px;
+      height: 35px;
+      background: var(--fontGrey);
+      color: var(--darkBlue);
+      display: block;
+      text-align: center;
+      border-radius: 50%;
+      margin: 0 13px;
+      line-height: 35px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .navLink {
+      display: flex;
+    }
+
+    .navLink a {
+      background: #191b2833;
+      color: white;
+      width: 30px;
+      height: 30px;
+      display: block;
+      font-size: 1rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      margin-right: 1rem;
+      transition: 0.3s;
+    }
+    .MBshareLink a:hover,
+    .navLink a:hover {
+      background-color: red;
+      color: white;
+    }
+
+    /* banner */
+    /* 手機版banner */
+    .mobileImg {
+      display: none;
+      width: 350px;
+      height: 329px;
+    }
+    .mobileImg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .linkItems {
+      display: none;
+      margin-bottom: 3rem;
+    }
+    .linkItems a {
+      text-decoration: none;
+      color: white;
+      padding: 13px 26px;
+      text-align: center;
+    }
+    /* webBanner */
+    .banner {
+      margin-top: 100px;
+      height: 744px;
+      background-color: antiquewhite;
+      background: url("./images/BannerBg.png") center top no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .banner .contextImg {
+      width: 60%;
+    }
+    .banner .contextImg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* bannerNav */
+    .bannerNav {
+      height: 3rem;
+      background-color: var(--darkBlue);
+      margin-top: -3rem;
+      padding-right: 10rem;
+      display: flex;
+    }
+    .bannerNav a {
+      color: white;
+      text-decoration: none;
+      height: 100%;
+      display: block;
+      padding: 0 26px;
+      line-height: 3rem;
+      transition: 0.3s;
+    }
+    .linkItems a:last-child:hover,
+    .bannerNav a:last-child:hover {
+      background-color: var(--red);
+    }
+    /* 滑動nav 變固定css */
+    .bannerNav.fixed {
+      position: fixed;
+      top: 146px;
+      right: 0;
+      left: 0;
+      z-index: 10;
+    }
+    /* 展示重點 */
+    main.contentOne {
+      height: 504px;
+      background-color: var(--bgGrey);
+    }
+    .contentOne .content {
+      padding: 5rem 0rem;
+      width: 48%;
+    }
+    .mainContainer h3 {
+      padding: 0.5rem 2rem;
+      border-left: 5px solid var(--red);
+      font-size: 40px;
+      line-height: 54px;
+      font-weight: 400;
+      color: var(--darkBlue);
+      margin-bottom: 40px;
+    }
+    .contentOne .content p {
+      line-height: 2rem;
+      color: var(--darkBlue);
+      font-weight: 400;
+    }
+    .contentTwo .content p.subTitle,
+    .contentOne .content p.subTitle {
+      font-size: 20px;
+      letter-spacing: 0.3rem;
+      color: var(--fontGrey);
+    }
+    .contentOne .demoShow .demoImg {
+      width: 312px;
+      height: 250px;
+      margin-left: -20px;
+      margin-top: 92px;
+    }
+    .contentOne .demoShow .demoImg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+    }
+    /* 議程資訊 */
+    .contentTwo {
+      position: relative;
+    }
+    .contentTwo .topBg {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 600px;
+      background: linear-gradient(
+        0deg,
+        rgba(25, 27, 40, 0.9),
+        rgba(25, 27, 40, 0.9)
+      );
+    }
+    .contentTwo .bottomBg {
+      z-index: -1;
+      top: 600px;
+      position: absolute;
+      width: 100%;
+      height: 1020px;
+      background-color: var(--bgGrey);
+    }
+    .mainContainer {
+      padding: 0 160px;
+    }
+    .formContainer {
+      position: relative;
+      z-index: 1;
+      padding-top: 86px;
+    }
+
+    .contentTwo .content h3,
+    .contentTwo .content p.subTitle {
+      color: white;
+    }
+    .subTitleWrap a {
+      text-decoration: none;
+      color: white;
+    }
+    .subTitleWrap a i {
+      color: var(--red);
+      margin-right: 0.5rem;
+    }
+    /* 表格 */
+    .contentTwo .content table {
+      background-color: white;
+      padding: 0.25rem;
+    }
+    table thead tr th {
+      width: 20%;
+      margin: 0.25rem;
+      margin: 5px;
+      background-color: var(--fontGrey) !important;
+      border-width: 1px 2px 2px 3px;
+      border-style: solid;
+      border-color: #ffffff;
+      text-align: center;
+      color: white;
+    }
+    table tbody td {
+      height: 68px;
+      vertical-align: middle;
+    }
+    .contentTwo .content table p {
+      margin-bottom: 0;
+    }
+    .contentTwo table td.scheduleLink {
+      text-align: center;
+    }
+    .contentTwo table td.scheduleLink a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: var(--red);
+      transition: 0.3s;
+    }
+    .contentTwo table td.scheduleLink a:hover {
+      color: var(--darkBlue);
+    }
+    /* 資安區 */
+    .contentThree {
+      padding-top: 86px;
+      margin-bottom: 7rem;
+    }
+    .contentThree .mainContainer p {
+      line-height: 2rem;
+      margin-bottom: 2rem;
+      color: var(--darkBlue);
+    }
+    /* profile */
+    .contentFour {
+      margin-bottom: 5rem;
+    }
+    .profileWrap {
+      position: relative;
+      width: 588px;
+      height: 360px;
+      border: 5px solid var(--red);
+      padding: 86px 6px 80px 228px;
+      margin-left: 121px;
+    }
+    .profileWrap .avatar {
+      position: absolute;
+      height: 360px;
+      width: 310px;
+      left: -121px;
+      top: -2rem;
+    }
+    .profileWrap .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+    }
+    .profileWrap .profile h3 {
+      font-size: 1.5rem;
+      line-height: 33px;
+      padding: 0;
+      padding-right: 0;
+      padding-left: 2rem;
+      color: var(--darkBlue);
+    }
+    .profileWrap .profile h1 {
+      font-size: 40px;
+      line-height: 54px;
+      font-weight: 400;
+      color: var(--darkBlue);
+    }
+    .contentFour .profileWrap p.subTitle {
+      font-size: 16px;
+      letter-spacing: 0.3rem;
+      color: var(--fontGrey);
+    }
+    /* Footer */
+    footer {
+      height: 384px;
+      background-image: url("./images/FooterBg.png");
+    }
+    footer .mainContainer {
+      padding: 80px 160px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer p {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    footer .brandImg {
+      margin-bottom: 140px;
+    }
+    footer .right p:first-child {
+      margin-bottom: 2rem;
+    }
+    footer .linkWrap {
+      margin-top: 2rem;
+    }
+    .linkWrap a {
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+    }
+    .linkWrap a:not(:first-child) {
+      margin-left: 0.5rem;
+      padding-left: 0.5rem;
+      border-left: 1.5px solid var(--fontGrey);
+    }
+    .linkWrap a i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    /* RWD nav & Banner */
+    @media (max-width: 1200px) {
+      .mainContainer {
+        padding: 0 2rem;
+      }
+      footer .mainContainer {
+        padding: 80px 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: 80px;
+      }
+      .banner {
+        margin-top: 80px;
+      }
+      .logoImg {
+        width: 220px;
+        height: 30px;
+      }
+      .logoImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .navLink {
+        display: none;
+      }
+      /* 手機版banner */
+      .banner {
+        flex-direction: column;
+        justify-content: start;
+      }
+      .mobileImg {
+        display: block;
+        margin-top: 80px;
+        margin-bottom: 2rem;
+      }
+      .banner .contextImg {
+        display: none;
+      }
+
+      .bannerNav {
+        display: none;
+      }
+      .linkItems {
+        display: block;
+        display: flex;
+        flex-direction: column;
+      }
+      .MBshareLink {
+        display: flex;
+      }
+      /* main */
+      .mainContainer {
+        padding: 0 1rem;
+      }
+      .contentOne .mainContainer {
+        padding: 0;
+      }
+      .contentOne .mainContainer {
+        flex-direction: column;
+      }
+      main.contentOne {
+        height: 1090px;
+      }
+      .contentOne .content:first-child {
+        padding: 2rem 1rem;
+        width: 100%;
+      }
+      .MbdemoWrap {
+        width: 100%;
+        height: 400px;
+        /* background-color: #d71920; */
+      }
+    }
+  </style>
+  <body>
+    <nav class="d-flex justify-content-between align-items-end">
+      <div class="logoImg">
+        <img src="./images/NavLogo.png" alt="" />
+      </div>
+      <div class="navLink">
+        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+        <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href=""><i class="fa-solid fa-link"></i></a>
+      </div>
+    </nav>
+    <div class="container-fluid banner">
+      <div class="contextImg">
+        <img src="./images/BannerContext.png" alt="" />
+      </div>
+      <div class="mobileImg">
+        <img src="./images/mobile/MobileBanner.png" alt="" />
+      </div>
+      <div class="linkItems">
+        <a href="">展示重點</a>
+        <a href="">議程資訊</a>
+        <a href="">台灣資安館</a>
+        <a
+          href="https://signupcybersec.ithome.com.tw/signup/2022?_ga=2.113164036.1612543763.1658486198-350710575.1658114719"
+          target="_blank"
+          >線上報名</a
+        >
+      </div>
+      <div class="MBshareLink">
+        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+        <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href=""><i class="fa-solid fa-link"></i></a>
+      </div>
+    </div>
+    <div class="bannerNav justify-content-end">
+      <a href="">展示重點</a>
+      <a href="">議程資訊</a>
+      <a href="">台灣資安館</a>
+      <a
+        href="https://signupcybersec.ithome.com.tw/signup/2022?_ga=2.113164036.1612543763.1658486198-350710575.1658114719"
+        target="_blank"
+        >線上報名</a
+      >
+    </div>
+
+    <!-- 展示重點 -->
+    <main class="contentOne">
+      <div class="mainContainer h-100 d-flex justify-content-between">
+        <div class="content">
+          <h3>展示重點</h3>
+          <p class="subTitle">TXOne Networks 保護智慧工業環境</p>
+          <p>
+            製造智慧化等數位轉型帶來強大的製造供應鏈的需求，
+            <br />
+            但面對新型態駭客威脅，勒索、癱瘓攻擊，企業如何確保產線持續營運？ 
+          </p>
+          <p>
+            TXOne 由零信任ZeroTrust 資安原則來協助企業評估OT場域的資安風險，<br />
+            了解場域可能受影響的資安脆弱點，給予整體建議，確保企業OT場域安全、產線維運不中斷，也提供各種ICS工控場域的安全機制。
+          </p>
+        </div>
+        <div class="MbdemoWrap"></div>
+
+        <!-- web版 -->
+        <!-- <div class="content demoShow d-flex">
+          <div class="demoSchedule">
+            <img src="./images/showSchedule.png" alt="" />
+          </div>
+          <div class="demoImg">
+            <img src="./images/demoImg1.jpg" alt="" />
+          </div>
+        </div> -->
+      </div>
+    </main>
+    <!-- 議程資訊 -->
+    <main class="contentTwo">
+      <div class="topBg"></div>
+      <div class="bottomBg"></div>
+      <div class="formContainer mainContainer">
+        <div class="content">
+          <h3>議程資訊</h3>
+          <div class="subTitleWrap d-flex justify-content-between mb-3">
+            <p class="subTitle">TXOne 12場資安專題演講</p>
+            <a href="">
+              <i class="fa-solid fa-download"></i>
+              議程下載
+            </a>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">時間</th>
+                <th scope="col">主題</th>
+                <th scope="col">講者</th>
+                <th scope="col">地點</th>
+                <th scope="col">詳細議程資訊</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  9月 20日 14:45 - 15:15
+                  <br />
+                  資安威脅研究室
+                </td>
+                <td>
+                  現代攻擊者免殺心法 <br />
+                  以時間鉗形戰術打穿即時防護
+                </td>
+                <td>馬聖豪</td>
+                <td>4B 展區會議室</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/720 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 21日 16:45 - 17:15
+                  <br />
+                  工控安全論壇
+                </td>
+                <td>佔有空調控制系統</td>
+                <td>Chicoyama, Canaan Kao</td>
+                <td>702</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/698 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 21日 16:45 - 17:15
+                  <br />
+                  資安威脅研究室
+                </td>
+                <td>
+                  文件格式混用在野技巧： <br />
+                  從防守盲點到惡意利用
+                </td>
+                <td>馬聖豪</td>
+                <td>701D</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/700 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 22日 11:45 - 12:15
+                  <br />
+                  資安威脅研究室
+                </td>
+                <td>There's no S(Security) in macOS SIP</td>
+                <td>Ta-Lun Yen</td>
+                <td>4A 展區會議室</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/771 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 22日 14:00 - 14:30
+                  <br />
+                  勒索軟體論壇
+                </td>
+                <td>不要再讓勒索軟體肆虐關鍵基礎設施了！</td>
+                <td>Mars Cheng, Hank Chen</td>
+                <td>701C</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/687 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 22日 14:45 - 15:15
+                  <br />
+                  資安威脅研究室
+                </td>
+                <td>從反組譯建立次世代語意感知特徵碼引擎</td>
+                <td>馬聖豪, Hank Chen</td>
+                <td>4A 展區會議室</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/736 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 22日 14:45 - 15:15
+                  <br />
+                  工控安全論壇
+                </td>
+                <td>對於資料分散式服務的深度安全分析</td>
+                <td>Ta-Lun Yen</td>
+                <td>703</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/772 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 22日 15:45 - 16:15
+                  <br />
+                  人工智慧資安論壇
+                </td>
+                <td>HMI影像學習自動偵測工業控制系統安全</td>
+                <td>YenTing Lee, Patrick Kuo</td>
+                <td>701D</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/691 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 22日 16:30 - 17:00
+                  <br />
+                  工控安全論壇
+                </td>
+                <td>如何全面接管工業控制系統 － 以三菱電機為例</td>
+                <td>Mars Cheng, Selmon Yang</td>
+                <td>703</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/685 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  9月 22日 16:30 - 17:00
+                  <br />
+                  Red Team 論壇
+                </td>
+                <td>我識破你的識破：LSALSASSUSELESS</td>
+                <td>馬聖豪</td>
+                <td>701F</td>
+                <td class="scheduleLink">
+                  <a
+                    href="https://cyber.ithome.com.tw/2022/session-page/694 "
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-up-right-from-square"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <!-- 資安館 -->
+    <main class="contentThree">
+      <div class="mainContainer">
+        <h3>台灣資安館</h3>
+        <p>
+          經濟部今年亦將同步在 Cybersec 資安大會中設立臺灣資安館，TXOne 也受邀參加，並將在臺灣資安館中 「工控安全」主題展區，以SEMI
+          E187半導體資安標準應用於生產設備生命週期安全防護做為展示重點。展示精華包含從進廠前(掃毒)、設備運作(端點、隔離) 至監控，透過 TXOne 完整工控資安解決方案，將E187實務落實至生產設備各階段。
+        </p>
+        <div class="imgWrap">
+          <!-- <img src="./images/Security.png" alt="" /> -->
+        </div>
+      </div>
+    </main>
+    <!-- profile -->
+    <main class="contentFour">
+      <div class="mainContainer d-flex justify-content-center">
+        <div class="profileWrap">
+          <div class="avatar">
+            <img src="./images/Avatar.jpg" alt="" />
+          </div>
+          <div class="profile">
+            <h3>TXOne 半導體資安專家</h3>
+            <h1 class="mb-3">劉大川</h1>
+            <p class="subTitle">
+              TXOne Networks <br />
+              首席解決方案架構師
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="mainContainer d-flex">
+        <div class="left">
+          <div class="brandImg">
+            <img src="./images/FooterLogo.png" alt="" />
+          </div>
+          <p>&copy; 2022 TXOne Networks. All rights reserved.</p>
+        </div>
+        <div class="right">
+          <p>TXOne Networks 睿控網安</p>
+          <p>台北辦公室:106 台北市大安區敦化南路二段216號5樓</p>
+          <p>新竹辦公室:300 新竹市東區力行六路6號5樓</p>
+          <p>信箱：support@txone.com</p>
+          <div class="linkWrap">
+            <a href="https://www.txone.com/ " target="_blank">
+              <i class="fa-solid fa-house"></i>TXOne
+            </a>
+            <a
+              href="https://www.linkedin.com/company/txone-tw/"
+              target="_blank"
+            >
+              <i class="fa-brands fa-linkedin-in"></i>LinkedIn
+            </a>
+            <a href="https://www.youtube.com/c/TXOneNetworks" target="_blank">
+              <i class="fa-brands fa-youtube"></i>YouTube
+            </a>
+            <a href="https://twitter.com/TXOneNetworks " target="_blank">
+              <i class="fa-brands fa-twitter"></i>Twitter
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <!-- boxicon -->
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+  </body>
+</html>
