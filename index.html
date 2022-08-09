@@ -19,6 +19,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- slick -->
+    <link rel="stylesheet" href="./css/animate.min.css" />
+    <link rel="stylesheet" href="./css/slick.min.css" />
     <title>Document</title>
   </head>
   <style>
@@ -164,10 +167,62 @@
       height: 504px;
       background-color: var(--bgGrey);
     }
+    .contentOne .mainContainer {
+      justify-content: space-between;
+    }
     .contentOne .content {
       padding: 5rem 0rem;
       width: 48%;
     }
+    /* --手機版 展示重點-- */
+    .MbdemoWrap {
+      display: none;
+      width: 100%;
+      height: 311px;
+      position: relative;
+    }
+    .MbdemoWrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .MbdemoWrap .textWrap {
+      padding-top: 40px;
+      color: white;
+      text-align: center;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .MbdemoWrap .textWrap h5 {
+      font-size: 20px;
+      margin-bottom: 1rem;
+      line-height: 32px;
+    }
+    .MbdemoWrap .textWrap p {
+      line-height: 2rem;
+      border-left: 1px solid white;
+      margin-bottom: 0;
+    }
+    .MbSlickWrap{
+      margin-top: -98px;
+      display: none;
+      width: 100%;
+      height: 280px;
+    }
+    .MbSlickWrap .slide{
+      width: 300px;
+      height: 240px;
+      margin: 0 0.5rem;
+    }
+    .MbSlickWrap .slide img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+    }
+
     .mainContainer h3 {
       padding: 0.5rem 2rem;
       border-left: 5px solid var(--red);
@@ -380,7 +435,7 @@
         padding: 80px 2rem;
       }
     }
-
+    
     @media (max-width: 768px) {
       nav {
         height: 80px;
@@ -425,7 +480,7 @@
       .MBshareLink {
         display: flex;
       }
-      /* main */
+      /* main一*/
       .mainContainer {
         padding: 0 1rem;
       }
@@ -434,18 +489,23 @@
       }
       .contentOne .mainContainer {
         flex-direction: column;
+        justify-content: start;
       }
       main.contentOne {
-        height: 1090px;
+        height: 1042px;
+      }
+      main.contentOne .demoShow {
+        display: none !important;
       }
       .contentOne .content:first-child {
         padding: 2rem 1rem;
         width: 100%;
       }
       .MbdemoWrap {
-        width: 100%;
-        height: 400px;
-        /* background-color: #d71920; */
+        display: block;
+      }
+      .MbSlickWrap{
+        display: block;
       }
     }
   </style>
@@ -496,7 +556,7 @@
 
     <!-- 展示重點 -->
     <main class="contentOne">
-      <div class="mainContainer h-100 d-flex justify-content-between">
+      <div class="mainContainer h-100 d-flex">
         <div class="content">
           <h3>展示重點</h3>
           <p class="subTitle">TXOne Networks 保護智慧工業環境</p>
@@ -510,17 +570,40 @@
             了解場域可能受影響的資安脆弱點，給予整體建議，確保企業OT場域安全、產線維運不中斷，也提供各種ICS工控場域的安全機制。
           </p>
         </div>
-        <div class="MbdemoWrap"></div>
+        <div class="MbdemoWrap">
+          <img src="./images/mobile/DemoBg.png" alt="" class="MbDemoBg" />
+          <div class="textWrap">
+            <h5>Tech Demo展演場次</h5>
+            <p>9月20日 13:00-13:30</p>
+            <p>9月21日 13:30-14:00</p>
+            <p>9月22日 12:00-12:30</p>
+          </div>
+        </div>
+        <div class="MbSlickWrap">
+          <div class="slider-block">
+            <div class="videoSlider">
+              <li class="slide">
+                  <img src="./images/demoImg3.jpg" alt="" />
+              </li>
+              <li class="slide">
+                  <img src="./images/demoImg1.jpg" alt="" />
+              <div>
+              <li class="slide">
+                  <img src="./images/demoImg2.jpg" alt="" />
+              </li>
+            </div>
+          </div>
+        </div>
 
         <!-- web版 -->
-        <!-- <div class="content demoShow d-flex">
+        <div class="content demoShow d-flex">
           <div class="demoSchedule">
             <img src="./images/showSchedule.png" alt="" />
           </div>
           <div class="demoImg">
             <img src="./images/demoImg1.jpg" alt="" />
           </div>
-        </div> -->
+        </div>
       </div>
     </main>
     <!-- 議程資訊 -->
@@ -805,7 +888,9 @@
       </div>
     </footer>
 
+    <!-- JS 功能 -->
     <script src="./index.js"></script>
+    <!-- BS5 -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
@@ -813,5 +898,24 @@
     ></script>
     <!-- boxicon -->
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    <!-- slick & JQ  -->
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./js/wow.min.js"></script>
+    <script type="text/javascript" src="./js/slick.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script>
+      $(".videoSlider").slick({
+        centerMode: true,
+        // autoplay: true,
+        infinite: true,
+        slidesToShow: 1,
+        slideswToScroll: 1,
+        arrows: false,
+        touchMove: true,
+        autoplaySpeed: 2000,
+        dots: false,
+        variableWidth: true,
+      });
+    </script>
   </body>
 </html>

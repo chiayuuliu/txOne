@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aircom</title>
+    <link rel="stylesheet" href="./css/animate.min.css" />
+    <link rel="stylesheet" href="./css/slick.min.css" />
+  </head>
+  <style>
+    * {
+      border: 1px solid lightblue;
+    }
+    .wrapper {
+      max-width: 786px;
+      min-width: 375px;
+    }
+    li.slide {
+      width: 300px;
+      height: 250px;
+    }
+    li.slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide {
+      margin: 1rem;
+    }
+  </style>
+  <body>
+    <!-- top videos -->
+    <div class="wrapper">
+      <div class="slider-block">
+        <div class="videoSlider">
+          <li class="slide">
+              <img src="./images/demoImg1.jpg" alt="topvideo" />
+          </li>
+          <li class="slide">
+              <img src="./images/demoImg1.jpg" alt="topvideo" />
+          <div>
+          <li class="slide">
+              <img src="./images/demoImg1.jpg" alt="topvideo" />
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <!-- js  -->
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./js/wow.min.js"></script>
+    <script type="text/javascript" src="./js/slick.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script></script>
+
+    <script>
+      $(".videoSlider").slick({
+        centerMode: true,
+        autoplay: true,
+        infinite: true,
+        slidesToShow: 1,
+        slideswToScroll: 1,
+        arrows: false,
+        touchMove: true,
+        autoplaySpeed: 2000,
+        dots: false,
+        variableWidth: true,
+      });
+    </script>
+  </body>
+</html>
