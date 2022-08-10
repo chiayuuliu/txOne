@@ -27,7 +27,7 @@
   <style>
     /* classname 小駝峰寫法 */
     * {
-      border: 1px solid lightblue;
+      /* border: 1px solid lightblue; */
       padding: 0;
       margin: 0;
       box-sizing: border-box;
@@ -312,6 +312,7 @@
     .scheduleCardWrap {
       /* height: 575px; */
       /* overflow: hidden; */
+      overflow: visible;
       width: 100%;
       display: none;
       flex-direction: column;
@@ -482,6 +483,7 @@
     }
     /* Footer */
     footer {
+      position: relative;
       height: 384px;
       background-image: url("./images/FooterBg.png");
     }
@@ -517,7 +519,6 @@
       color: var(--red);
       margin-right: 6px;
     }
-    /* RWD nav & Banner */
     @media (max-width: 1200px) {
       .mainContainer {
         padding: 0 2rem;
@@ -528,6 +529,7 @@
     }
     
     @media (max-width: 768px) {
+    /* RWD nav & Banner */
       nav {
         height: 80px;
       }
@@ -614,7 +616,83 @@
       .scheduleCard{
         display: block;
       }
+      /* profile */
+      .profileWrap {
+        width: 375px;
+        height: 480px;
+        border: 5px solid var(--red);
+        padding: 219px 30px 58px 32px;
+        margin-left: 0px;
+        margin-top: 120px;
+      }
+      .profileWrap .avatar {
+        left: 50%;
+        top: -181px;
+        transform: translateX(-50%);
+      }
+      .contentFour{
+        margin-bottom: 2rem;
+      }
+      /* footer */
+
+      footer .mainContainer{
+        flex-direction: column;
+        /* align-items: start; */
+        padding: 40px 1rem;
+      }
+      footer .right {
+        text-align: center;
+      }
+      footer .copyRight{
+        white-space:nowrap;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      footer .brandImg {
+        margin-bottom: 2rem;
+        width: 175px;
+        height: 24px;
+      }
+      footer .brandImg img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      footer .linkWrap {
+        margin: 1rem 0;
+      }
+      .linkWrap a:not(:first-child) {
+        margin-left: 0.25rem;
+        padding-left: 0.25rem;
+      }
     }
+    @media (max-width: 400px) {
+      
+      .contentFour .mainContainer{
+        padding: 0;
+      }
+      .profileWrap {
+        width: 100%;
+      }
+      /* footer */
+      footer *>p{
+        font-size: 14px;
+      }
+      footer *>a{
+        font-size: 12px;
+      }
+      footer .mainContainer{
+        align-items: start;
+      }
+      footer .right {
+        text-align: left;
+      }
+      
+      
+    }
+
   </style>
   <body>
     <nav class="d-flex justify-content-between align-items-end">
@@ -1317,18 +1395,18 @@
       </div>
     </main>
     <!-- Footer -->
-    <!-- <footer>
+    <footer>
       <div class="mainContainer d-flex">
         <div class="left">
           <div class="brandImg">
             <img src="./images/FooterLogo.png" alt="" />
           </div>
-          <p>&copy; 2022 TXOne Networks. All rights reserved.</p>
+          <p class="copyRight">&copy; 2022 TXOne Networks. All rights reserved.</p>
         </div>
         <div class="right">
           <p>TXOne Networks 睿控網安</p>
-          <p>台北辦公室:106 台北市大安區敦化南路二段216號5樓</p>
-          <p>新竹辦公室:300 新竹市東區力行六路6號5樓</p>
+          <p>台北辦公室：106 台北市大安區敦化南路二段216號5樓</p>
+          <p>新竹辦公室：300 新竹市東區力行六路6號5樓</p>
           <p>信箱：support@txone.com</p>
           <div class="linkWrap">
             <a href="https://www.txone.com/ " target="_blank">
@@ -1349,7 +1427,7 @@
           </div>
         </div>
       </div>
-    </footer> -->
+    </footer>
 
     <!-- JS 功能 -->
     <script src="./index.js"></script>
