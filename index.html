@@ -22,17 +22,22 @@
     <!-- slick -->
     <link rel="stylesheet" href="./css/animate.min.css" />
     <link rel="stylesheet" href="./css/slick.min.css" />
+    <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script> 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Document</title>
   </head>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
     /* classname 小駝峰寫法 */
     * {
-      /* border: 1px solid lightblue; */
+      border: 1px solid lightblue;
       padding: 0;
       margin: 0;
       box-sizing: border-box;
+      font-family: 'Noto Sans TC', sans-serif;
     }
-    
     :root {
       --red: #d71920;
       --secondRed: #e64e19;
@@ -57,6 +62,7 @@
     .MBshareLink {
       display: none;
     }
+    .MBshareLink button,
     .MBshareLink a {
       width: 35px;
       height: 35px;
@@ -75,6 +81,7 @@
       display: flex;
     }
 
+    .navLink button,
     .navLink a {
       background: #191b2833;
       color: white;
@@ -88,10 +95,22 @@
       margin-right: 1rem;
       transition: 0.3s;
     }
+    .MBshareLink button,
+    .navLink button{
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     .MBshareLink a:hover,
     .navLink a:hover {
       background-color: red;
       color: white;
+    }
+    ion-icon {
+      font-size: 20px;
+      font-weight: 700;
+      --ionicon-stroke-width: 16px;
     }
 
     /* banner */
@@ -120,8 +139,9 @@
     .banner {
       margin-top: 100px;
       height: 744px;
-      background-color: antiquewhite;
+      /* background-color: antiquewhite; */
       background: url("./images/BannerBg.png") center top no-repeat;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -151,9 +171,12 @@
       line-height: 3rem;
       transition: 0.3s;
     }
-    .linkItems a:last-child:hover,
-    .bannerNav a:last-child:hover {
+    .linkItems a:last-child,
+    .bannerNav a:last-child{
       background-color: var(--red);
+    }
+    .bannerNav a:last-child:hover{
+      background-color: var(--secondRed);
     }
     /* 滑動nav 變固定css */
     .bannerNav.fixed {
@@ -165,14 +188,15 @@
     }
     /* 展示重點 */
     main.contentOne {
-      height: 504px;
+      /* height: 504px; */
+      padding: 5rem 0rem;
       background-color: var(--bgGrey);
     }
     .contentOne .mainContainer {
       justify-content: space-between;
     }
     .contentOne .content {
-      padding: 5rem 0rem;
+      /* padding: 5rem 0rem; */
       width: 48%;
     }
     /* --手機版 展示重點-- */
@@ -246,6 +270,7 @@
       color: var(--fontGrey);
     }
     .contentOne .demoShow .demoImg {
+      /* min-width: 250px; */
       width: 312px;
       height: 250px;
       margin-left: -20px;
@@ -307,6 +332,10 @@
     .subTitleWrap a i {
       color: var(--red);
       margin-right: 0.5rem;
+      transition: .3s;
+    }
+    .subTitleWrap a:hover i{
+      color: white;
     }
     /* 手機版資訊card */
     .scheduleCardWrap {
@@ -378,6 +407,7 @@
     }
     /* 展開表格 */
     .cardToggleBtn{
+      display: none;
       text-align: center;
       color: var(--secondRed);
       font-size: 20px;
@@ -526,6 +556,15 @@
       footer .mainContainer {
         padding: 80px 2rem;
       }
+      .formContainer{
+        padding-top: 78px;
+      }
+      .contentOne .demoShow .demoImg {
+        /* min-width: 200px; */
+        height: 150px;
+        margin-left: -20px;
+        margin-top: 220px;
+      }
     }
     
     @media (max-width: 768px) {
@@ -616,6 +655,10 @@
       .scheduleCard{
         display: block;
       }
+      .cardToggleBtn{
+        display: block;
+      }
+
       /* profile */
       .profileWrap {
         width: 375px;
@@ -699,10 +742,24 @@
       <div class="logoImg">
         <img src="./images/NavLogo.png" alt="" />
       </div>
-      <div class="navLink">
-        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-        <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href=""><i class="fa-solid fa-link"></i></a>
+      <div class="navLink" >
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.google.com.tw/?hl=zh_TW">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <!-- TODO:linkin 分享 -->
+        <a href="">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <!--  TODO: 要改網址 -->
+        <button 
+        data-value="http://127.0.0.1:5500/index.html" 
+        onclick="copyURI(event)">
+          <ion-icon name="link-outline" 
+          data-value="http://127.0.0.1:5500/index.html" 
+          onclick="copyURI(event)"
+          >
+          </ion-icon>
+        </button>
       </div>
     </nav>
     <div class="container-fluid banner">
@@ -713,7 +770,7 @@
         <img src="./images/mobile/MobileBanner.png" alt="" />
       </div>
       <div class="linkItems">
-        <a href="">展示重點</a>
+        <a  href="">展示重點</a>
         <a href="">議程資訊</a>
         <a href="">台灣資安館</a>
         <a
@@ -722,26 +779,40 @@
           >線上報名</a
         >
       </div>
+      <!-- 手機版分享連結  -->
       <div class="MBshareLink">
-        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=你要分享的網址">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
         <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href=""><i class="fa-solid fa-link"></i></a>
+        <!--  TODO:改網址 -->
+        <button 
+        data-value="http://127.0.0.1:5500/index.html" 
+        onclick="copyURI(event)">
+        <ion-icon name="link-outline" 
+        data-value="http://127.0.0.1:5500/index.html" 
+        onclick="copyURI(event)"
+        >
+        </ion-icon>
+        </button>
       </div>
     </div>
-    <div class="bannerNav justify-content-end">
-      <a href="">展示重點</a>
-      <a href="">議程資訊</a>
-      <a href="">台灣資安館</a>
+
+    <div class="bannerNav justify-content-end" >
+      <a href="#contentOne" >展示重點</a>
+      <a href="#contentTwo">議程資訊</a>
+      <a href="#contentThree">台灣資安館</a>
       <a
         href="https://signupcybersec.ithome.com.tw/signup/2022?_ga=2.113164036.1612543763.1658486198-350710575.1658114719"
         target="_blank"
         >線上報名</a
       >
     </div>
+    
 
     <!-- 展示重點 -->
-    <main class="contentOne">
-      <div class="mainContainer h-100 d-flex">
+    <main class="contentOne" >
+      <div class="mainContainer d-flex">
         <div class="content">
           <h3>展示重點</h3>
           <p class="subTitle">TXOne Networks 保護智慧工業環境</p>
@@ -750,11 +821,14 @@
             <br />
             但面對新型態駭客威脅，勒索、癱瘓攻擊，企業如何確保產線持續營運？ 
           </p>
-          <p>
+          <p  >
             TXOne 由零信任ZeroTrust 資安原則來協助企業評估OT場域的資安風險，<br />
             了解場域可能受影響的資安脆弱點，給予整體建議，確保企業OT場域安全、產線維運不中斷，也提供各種ICS工控場域的安全機制。
+            <div id="contentTwo"></div>
           </p>
+          
         </div>
+        <!-- mobile版 -->
         <div class="MbdemoWrap">
           <img src="./images/mobile/DemoBg.png" alt="" class="MbDemoBg" />
           <div class="textWrap">
@@ -766,33 +840,46 @@
         </div>
         <div class="MbSlickWrap">
           <div class="slider-block">
-            <div class="videoSlider">
-              <li class="slide">
-                  <img src="./images/demoImg3.jpg" alt="" />
-              </li>
+            <div class="mobileDemoSlider">
               <li class="slide">
                   <img src="./images/demoImg1.jpg" alt="" />
-              <div>
+              </li>
               <li class="slide">
                   <img src="./images/demoImg2.jpg" alt="" />
+              <div>
+              <li class="slide">
+                  <img src="./images/demoImg3.jpg" alt="" />
               </li>
             </div>
           </div>
         </div>
 
         <!-- web版 -->
-        <div class="content demoShow d-flex">
+        <div class="content demoShow d-flex" >
           <div class="demoSchedule">
             <img src="./images/showSchedule.png" alt="" />
           </div>
-          <div class="demoImg">
+          <!-- <div class="demoImg">
             <img src="./images/demoImg1.jpg" alt="" />
-          </div>
+          </div> -->
+          <!-- <div class="slider-block">
+            <div class="mobileDemoSlider">
+              <li class="slide">
+                  <img src="./images/demoImg1.jpg" alt="" />
+              </li>
+              <li class="slide">
+                  <img src="./images/demoImg2.jpg" alt="" />
+              <div>
+              <li class="slide">
+                  <img src="./images/demoImg3.jpg" alt="" />
+              </li>
+            </div>
+          </div> -->
         </div>
       </div>
     </main>
     <!-- 議程資訊 -->
-    <main class="contentTwo">
+    <main class="contentTwo" >
       <div class="topBg"></div>
       <div class="bottomBg"></div>
       <div class="formContainer mainContainer">
@@ -800,10 +887,11 @@
           <h3>議程資訊</h3>
           <div class="subTitleWrap d-flex mb-3">
             <p class="subTitle">TXOne 12場資安專題演講</p>
-            <a href="">
+            <a href="./images/ScheduleTable.png" download>
               <i class="fa-solid fa-download"></i>
               議程下載
             </a>
+
           </div>
           <!-- mobile infoCard -->
           <div class="scheduleCardWrap">
@@ -1340,7 +1428,7 @@
                   ></a>
                 </td>
               </tr>
-              <tr>
+              <tr id="contentThree">
                 <td>
                   9月 22日 16:30 - 17:00
                   <br />
@@ -1362,9 +1450,10 @@
           </table>
         </div>
       </div>
+      
     </main>
     <!-- 資安館 -->
-    <main class="contentThree">
+    <main class="contentThree" >
       <div class="mainContainer">
         <h3>台灣資安館</h3>
         <p>
@@ -1444,9 +1533,11 @@
     <script type="text/javascript" src="./js/wow.min.js"></script>
     <script type="text/javascript" src="./js/slick.min.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+    
     <script>
-      $(".videoSlider").slick({
+      $(".mobileDemoSlider").slick({
         centerMode: true,
+        centerPadding: '60px',
         // autoplay: true,
         infinite: true,
         slidesToShow: 1,
@@ -1457,6 +1548,18 @@
         dots: false,
         variableWidth: true,
       });
+
+      $('.webDemoSlider').slick({
+        dots: true,
+        slidesToShow: 1,
+        infinite: true,
+        autoplaySpeed: 2000,
+        fade: true,
+        cssEase: 'linear',
+        dots: false,
+        variableWidth: true,
+      });
+
     </script>
   </body>
 </html>
