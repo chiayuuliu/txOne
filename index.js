@@ -19,12 +19,19 @@ function copyURI(e) {
     }
   );
 }
-// scroll
+// scroll到指定位置
 const contentOneBtn = document.querySelector(".contentOneBtn");
-const contentOne = document.querySelector(".contentOne");
 
 contentOneBtn.addEventListener("click", () => {
-  console.log(window.self)
-  const top = 1400
-  window.screenTop = top
+  const contentOne = document.querySelector(".contentOne");
+  contentOne.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
 })
+// 用迴圈改寫
+// const sectionBtns = document.querySelectorAll(".sectionBtn")
+// sectionBtns.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     const el = document.getElementById(btn.getAttribute("data-link"))
+//     el.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
+//     // console.log(btn.getAttribute("data-link"))
+//   })
+// })
