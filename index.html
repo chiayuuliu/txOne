@@ -24,13 +24,13 @@
     <link rel="stylesheet" href="./css/slick.min.css" />
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Document</title>
+    <title>txOne</title>
   </head>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
     /* classname 小駝峰寫法 */
     * {
-      border: 1px solid lightblue;
+      /* border: 1px solid lightblue; */
       padding: 0;
       margin: 0;
       box-sizing: border-box;
@@ -44,6 +44,13 @@
       --darkBlue: #191b28;
       --white: #ffffff;
       --fontGrey: #5e5f68;
+    }
+    /* ----- */
+    .titleWhite{
+      color: #ffffff;
+    }
+    .titleBlue{
+      color: var(--darkBlue);
     }
     /* nav */
     nav {
@@ -233,7 +240,7 @@
       margin-top: -98px;
       display: none;
       width: 100%;
-      height: 280px;
+      /* height: 280px; */
     }
     .MbSlickWrap .slide{
       width: 300px;
@@ -282,28 +289,11 @@
     }
     /* 議程資訊 */
     .contentTwo {
-      position: relative;
+      /* position: relative; */
     }
-    .contentTwo .topBg {
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 600px;
-      background: linear-gradient(
-        0deg,
-        rgba(25, 27, 40, 0.9),
-        rgba(25, 27, 40, 0.9)
-      );
-    }
-    .contentTwo .bottomBg {
-      z-index: -1;
-      top: 600px;
-      position: absolute;
-      width: 100%;
-      height: 1020px;
-      background-color: var(--bgGrey);
-    }
+   .contentTwo .content .titleWhite{
+    color: #ffffff;
+   }
     .mainContainer {
       padding: 0 160px;
     }
@@ -311,9 +301,12 @@
       position: relative;
       z-index: 1;
       padding-top: 86px;
+      background:linear-gradient( 180deg,
+        #191b28e5 0%, #191b28e5 25%,
+        #F7F7F7 25%, #F7F7F7 67%,
+        #ffffff 67%,#ffffff 100%);
     }
 
-    .contentTwo .content h3,
     .contentTwo .content p.subTitle {
       color: white;
     }
@@ -335,11 +328,8 @@
     .subTitleWrap a:hover i{
       color: white;
     }
-    /* 手機版資訊card */
+    /* 手機版資訊card 展開*/
     .scheduleCardWrap {
-      /* height: 575px; */
-      /* overflow: hidden; */
-      overflow: visible;
       width: 100%;
       display: none;
       flex-direction: column;
@@ -347,13 +337,25 @@
       align-items: center;
       margin-bottom: 2rem;
     }
+    /* 收合 */
+    .scheduleCardWrap.close {
+      height: 555px;  
+      overflow: hidden;
+      justify-content: start;
+    }
+    .scheduleCardWrap.close .scheduleCard{
+      /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); */
+    }
+    .cardToggleBtn.open i{
+      transform: rotate(180deg) translateY(-5%);;
+    }
     .scheduleCard{
       width: 100%;
       max-width: 500px;
       min-width: 343px;
       height: 175px;
       background-color: white;
-      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
     }
     .scheduleCard div{
       display: flex;
@@ -424,6 +426,7 @@
     .contentTwo .content table {
       background-color: white;
       padding: 0.25rem;
+      margin-bottom: 86px;
     }
     table thead tr th {
       width: 20%;
@@ -457,13 +460,17 @@
     }
     /* 資安區 */
     .contentThree {
-      padding-top: 86px;
       margin-bottom: 7rem;
     }
-    .contentThree .mainContainer p {
+    .contentThree  p {
       line-height: 2rem;
       margin-bottom: 2rem;
       color: var(--darkBlue);
+    }
+    .contentThree .imgWrap img{
+       width: 100%;
+       height: 100%;
+       object-fit: cover; 
     }
     /* profile */
     .contentFour {
@@ -471,7 +478,7 @@
     }
     .profileWrap {
       position: relative;
-      width: 588px;
+
       height: 360px;
       border: 5px solid var(--red);
       padding: 86px 6px 80px 228px;
@@ -558,7 +565,6 @@
         padding-top: 78px;
       }
       .contentOne .demoShow .demoImg {
-        /* min-width: 200px; */
         height: 150px;
         margin-left: -20px;
         margin-top: 220px;
@@ -620,9 +626,10 @@
       .contentOne .mainContainer {
         flex-direction: column;
         justify-content: start;
+        min-height: 1003px;
       }
       main.contentOne {
-        height: 1042px;
+        /* height: 1042px; */
       }
       main.contentOne .demoShow {
         display: none !important;
@@ -636,6 +643,7 @@
       }
       .MbSlickWrap{
         display: block;
+        margin-bottom: 3rem;
       }
       /* 議程資訊 RWD*/
       .formContainer {
@@ -675,10 +683,8 @@
         margin-bottom: 2rem;
       }
       /* footer */
-
       footer .mainContainer{
         flex-direction: column;
-        /* align-items: start; */
         padding: 40px 1rem;
       }
       footer .right {
@@ -709,10 +715,15 @@
         padding-left: 0.25rem;
       }
     }
-    @media (max-width: 400px) {
-      
+    @media (max-width: 500px) {
+      main.contentOne {
+        padding-bottom: 0;
+      }
       .contentFour .mainContainer{
         padding: 0;
+      }
+      .MbdemoWrap .textWrap {
+        min-width: 180px;
       }
       .profileWrap {
         width: 100%;
@@ -729,9 +740,7 @@
       }
       footer .right {
         text-align: left;
-      }
-      
-      
+      }      
     }
 
   </style>
@@ -768,9 +777,9 @@
         <img src="./images/mobile/MobileBanner.png" alt="" />
       </div>
       <div class="linkItems">
-        <a  href="">展示重點</a>
-        <a href="">議程資訊</a>
-        <a href="">台灣資安館</a>
+        <a href="#contentOne">展示重點</a>
+        <a href="#contentTwo">議程資訊</a>
+        <a href="#contentThree">台灣資安館</a>
         <a
           href="https://signupcybersec.ithome.com.tw/signup/2022?_ga=2.113164036.1612543763.1658486198-350710575.1658114719"
           target="_blank"
@@ -878,21 +887,18 @@
     </main>
     <!-- 議程資訊 -->
     <main class="contentTwo" >
-      <div class="topBg"></div>
-      <div class="bottomBg"></div>
       <div class="formContainer mainContainer">
         <div class="content">
-          <h3>議程資訊</h3>
+          <h3 class="titleWhite">議程資訊</h3>
           <div class="subTitleWrap d-flex mb-3">
             <p class="subTitle">TXOne 12場資安專題演講</p>
             <a href="./images/ScheduleTable.png" download>
               <i class="fa-solid fa-download"></i>
               議程下載
             </a>
-
           </div>
           <!-- mobile infoCard -->
-          <div class="scheduleCardWrap">
+          <div class="scheduleCardWrap close">
             <div class="scheduleCard mb-3">
               <div class="title">
                 <p>9月 20日 14:45 - 15:15</p>
@@ -1446,40 +1452,54 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-      
-    </main>
-    <!-- 資安館 -->
-    <main class="contentThree" >
-      <div class="mainContainer">
-        <h3>台灣資安館</h3>
-        <p>
-          經濟部今年亦將同步在 Cybersec 資安大會中設立臺灣資安館，TXOne 也受邀參加，並將在臺灣資安館中 「工控安全」主題展區，以SEMI
-          E187半導體資安標準應用於生產設備生命週期安全防護做為展示重點。展示精華包含從進廠前(掃毒)、設備運作(端點、隔離) 至監控，透過 TXOne 完整工控資安解決方案，將E187實務落實至生產設備各階段。
-        </p>
-        <div class="imgWrap">
-          <!-- <img src="./images/Security.png" alt="" /> -->
-        </div>
-      </div>
-    </main>
-    <!-- profile -->
-    <main class="contentFour">
-      <div class="mainContainer d-flex justify-content-center">
-        <div class="profileWrap">
-          <div class="avatar">
-            <img src="./images/Avatar.jpg" alt="" />
-          </div>
-          <div class="profile">
-            <h3>TXOne 半導體資安專家</h3>
-            <h1 class="mb-3">劉大川</h1>
-            <p class="subTitle">
-              TXOne Networks <br />
-              首席解決方案架構師
+          <div class="contentThree" id="contentThree">
+            <h3>台灣資安館</h3>
+            <p>
+              經濟部今年亦將同步在 Cybersec 資安大會中設立臺灣資安館，TXOne 也受邀參加，並將在臺灣資安館中 「工控安全」主題展區，以SEMI
+              E187半導體資安標準應用於生產設備生命週期安全防護做為展示重點。展示精華包含從進廠前(掃毒)、設備運作(端點、隔離) 至監控，透過 TXOne 完整工控資安解決方案，將E187實務落實至生產設備各階段。
             </p>
+            <div class="imgWrap">
+              <img src="./images/Security.png" alt="" />
+            </div>
+          </div>
+          
+        </div>
+        <main class="contentFour" >
+          <div class=" d-flex justify-content-center">
+            <div class="profileWrap">
+              <div class="avatar">
+                <img src="./images/Avatar.jpg" alt="" />
+              </div>
+              <div class="profile">
+                <h3>TXOne 半導體資安專家</h3>
+                <h1 class="mb-3">劉大川</h1>
+                <p class="subTitle">
+                  TXOne Networks <br />
+                  首席解決方案架構師
+                </p>
+              </div>
+            </div>
+          </div>
+        </main> 
+      </div>
+      <!-- <main class="contentFour">
+        <div class=" d-flex justify-content-center">
+          <div class="profileWrap">
+            <div class="avatar">
+              <img src="./images/Avatar.jpg" alt="" />
+            </div>
+            <div class="profile">
+              <h3>TXOne 半導體資安專家</h3>
+              <h1 class="mb-3">劉大川</h1>
+              <p class="subTitle">
+                TXOne Networks <br />
+                首席解決方案架構師
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </main> -->
+      
     </main>
     <!-- Footer -->
     <footer>

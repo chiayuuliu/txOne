@@ -1,4 +1,10 @@
 const Bannernav = document.querySelector(".bannerNav");
+const contentOneBtn = document.querySelector(".contentOneBtn");
+// 手機版卡片開合
+const CardWrap = document.querySelector(".scheduleCardWrap");
+const ToggleBtn = document.querySelector(".cardToggleBtn");
+
+// nav 滑動固定
 window.addEventListener("scroll", function () {
   if (window.scrollY > 696) {
     Bannernav.classList.add("fixed");
@@ -15,23 +21,19 @@ function copyURI(e) {
     },
     () => {
       console.log("fail");
-      /* clipboard write failed */
     }
   );
 }
 // scroll到指定位置
-const contentOneBtn = document.querySelector(".contentOneBtn");
 
 contentOneBtn.addEventListener("click", () => {
   const contentOne = document.querySelector(".contentOne");
-  contentOne.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
+  contentOne.scrollIntoView({ behavior: "smooth", block: "end", inline: "start" })
 })
-// 用迴圈改寫
-// const sectionBtns = document.querySelectorAll(".sectionBtn")
-// sectionBtns.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     const el = document.getElementById(btn.getAttribute("data-link"))
-//     el.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
-//     // console.log(btn.getAttribute("data-link"))
-//   })
-// })
+
+// 
+ToggleBtn.addEventListener("click", () => {
+  // ToggleBtn.innerHTML = '<p><i class="fa-solid fa-chevron-down"></i>收合議程列表</p >';
+  CardWrap.classList.toggle('close')
+  ToggleBtn.classList.toggle('open')
+})
