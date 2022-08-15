@@ -25,727 +25,14 @@
     <link rel="stylesheet" href="./css/index.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
     <title>txOne</title>
   </head>
-  <!-- <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-    /* classname 小駝峰寫法 */
-    * {
-      /* border: 1px solid lightblue; */
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-      font-family: 'Noto Sans TC', sans-serif;
-    }
-    :root {
-      --red: #d71920;
-      --secondRed: #e64e19;
-      --lightGrey: #191b2833;
-      --bgGrey: #f7f7f7;
-      --darkBlue: #191b28;
-      --white: #ffffff;
-      --fontGrey: #5e5f68;
-    }
-    /* ----- */
-    .titleWhite{
-      color: #ffffff;
-    }
-    .titleBlue{
-      color: var(--darkBlue);
-    }
-    /* nav */
-    nav {
-      height: 100px;
-      padding: 0 1rem 1rem;
-      position: fixed;
-      top: 0;
-      background-color: white;
-      right: 0;
-      left: 0;
-      z-index: 10;
-    }
-    /* 手機版分享連結btn */
-    .MBshareLink {
-      display: none;
-    }
-    .MBshareLink button,
-    .MBshareLink a {
-      width: 35px;
-      height: 35px;
-      background: var(--fontGrey);
-      color: var(--darkBlue);
-      display: block;
-      text-align: center;
-      border-radius: 50%;
-      margin: 0 13px;
-      line-height: 35px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-    .navLink {
-      display: flex;
-    }
-
-    .navLink button,
-    .navLink a {
-      background: #191b2833;
-      color: white;
-      width: 30px;
-      height: 30px;
-      display: block;
-      font-size: 1rem;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 30px;
-      margin-right: 1rem;
-      transition: 0.3s;
-    }
-    .MBshareLink button,
-    .navLink button{
-      border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .MBshareLink a:hover,
-    .navLink a:hover {
-      background-color: red;
-      color: white;
-    }
-    ion-icon {
-      font-size: 20px;
-      font-weight: 700;
-      --ionicon-stroke-width: 16px;
-    }
-
-    /* banner */
-    /* 手機版banner */
-    .mobileImg {
-      display: none;
-      width: 350px;
-      height: 329px;
-    }
-    .mobileImg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .linkItems {
-      display: none;
-      margin-bottom: 3rem;
-    }
-    .linkItems a {
-      text-decoration: none;
-      color: white;
-      padding: 13px 26px;
-      text-align: center;
-    }
-    /* webBanner */
-    .banner {
-      margin-top: 100px;
-      height: 744px;
-      /* background-color: antiquewhite; */
-      background: url("./images/BannerBg.png") center top no-repeat;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .banner .contextImg {
-      width: 60%;
-    }
-    .banner .contextImg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* bannerNav */
-    .bannerNav {
-      height: 3rem;
-      background-color: var(--darkBlue);
-      margin-top: -3rem;
-      padding-right: 10rem;
-      display: flex;
-    }
-    .bannerNav a {
-      color: white;
-      text-decoration: none;
-      height: 100%;
-      display: block;
-      padding: 0 26px;
-      line-height: 3rem;
-      transition: 0.3s;
-    }
-    .linkItems a:last-child,
-    .bannerNav a:last-child{
-      background-color: var(--red);
-    }
-    .bannerNav a:last-child:hover{
-      background-color: var(--secondRed);
-    }
-    /* 滑動nav 變固定css */
-    .bannerNav.fixed {
-      position: fixed;
-      top: 146px;
-      right: 0;
-      left: 0;
-      z-index: 10;
-    }
-    /* 展示重點 */
-    main.contentOne {
-      padding: 5rem 0rem;
-      background-color: var(--bgGrey);
-    }
-    .contentOne .mainContainer {
-      justify-content: space-between;
-    }
-    .contentOne .content {
-      width: 48%;
-    }
-    /* --手機版 展示重點-- */
-    .MbdemoWrap {
-      display: none;
-      width: 100%;
-      height: 311px;
-      position: relative;
-    }
-    .MbdemoWrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .MbdemoWrap .textWrap {
-      padding-top: 40px;
-      color: white;
-      text-align: center;
-      position: absolute;
-      top: 0%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .MbdemoWrap .textWrap h5 {
-      font-size: 20px;
-      margin-bottom: 1rem;
-      line-height: 32px;
-    }
-    .MbdemoWrap .textWrap p {
-      line-height: 2rem;
-      border-left: 1px solid white;
-      margin-bottom: 0;
-    }
-    /* 手機版輪播牆 */
-    .MbSlickWrap{
-      margin-top: -98px;
-      display: none;
-      width: 100%;
-      /* height: 280px; */
-    }
-    .MbSlickWrap .slide{
-      width: 300px;
-      height: 240px;
-      margin: 0 0.5rem;
-    }
-    .MbSlickWrap .slide img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
-    }
-
-    .mainContainer h3 {
-      padding: 0.5rem 2rem;
-      border-left: 5px solid var(--red);
-      font-size: 40px;
-      line-height: 54px;
-      font-weight: 400;
-      color: var(--darkBlue);
-      margin-bottom: 40px;
-    }
-    .contentOne .content p {
-      line-height: 2rem;
-      color: var(--darkBlue);
-      font-weight: 400;
-    }
-    .contentTwo .content p.subTitle,
-    .contentOne .content p.subTitle {
-      font-size: 20px;
-      letter-spacing: 0.3rem;
-      color: var(--fontGrey);
-    }
-    .contentOne .demoShow .demoImg {
-      /* min-width: 250px; */
-      width: 312px;
-      height: 250px;
-      margin-left: -20px;
-      margin-top: 92px;
-    }
-    .contentOne .demoShow .demoImg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
-    }
-    /* 議程資訊 */
-    .contentTwo {
-      /* position: relative; */
-    }
-   .contentTwo .content .titleWhite{
-    color: #ffffff;
-   }
-    .mainContainer {
-      padding: 0 160px;
-    }
-    .formContainer {
-      position: relative;
-      z-index: 1;
-      padding-top: 86px;
-      background:linear-gradient( 180deg,
-        #191b28e5 0%, #191b28e5 25%,
-        #F7F7F7 25%, #F7F7F7 67%,
-        #ffffff 67%,#ffffff 100%);
-    }
-
-    .contentTwo .content p.subTitle {
-      color: white;
-    }
-    .contentTwo .content p.subTitle{
-      color: #DFDFE1;
-    }
-    .subTitleWrap{
-      justify-content: space-between;
-    }
-    .subTitleWrap a {
-      text-decoration: none;
-      color: white;
-    }
-    .subTitleWrap a i {
-      color: var(--red);
-      margin-right: 0.5rem;
-      transition: .3s;
-    }
-    .subTitleWrap a:hover i{
-      color: white;
-    }
-    /* 手機版資訊card 展開*/
-    .scheduleCardWrap {
-      width: 100%;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    /* 收合 */
-    .scheduleCardWrap.close {
-      height: 555px;  
-      overflow: hidden;
-      justify-content: start;
-    }
-    .cardToggleBtn.open i{
-      transform: rotate(180deg) translateY(-5%);;
-    }
-    .scheduleCard{
-      width: 100%;
-      max-width: 500px;
-      min-width: 343px;
-      height: 175px;
-      background-color: white;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    }
-    .scheduleCard div{
-      display: flex;
-    }
-    .scheduleCard *> p{
-      margin-bottom: 0;
-    }
-    .scheduleCard .placeWrap a,
-    .scheduleCard span{
-      font-size: 12px;
-      color: #969696;
-      text-decoration: none;
-    }
-    .scheduleCard .title{
-      padding: 0.5rem;
-      height: 40px;
-      background-color: var(--fontGrey);
-      border: 1px solid white;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-    .scheduleCard .title span{
-      font-size: 14px;
-      color: white;
-    }
-    .scheduleCard .topicWrap{
-      margin: 0.5rem;
-      height: 90px;
-      border-bottom: 1px solid var(--lightGrey);
-    }
-    .speaker{
-      width: 30%;
-      border-left: 1px solid var(--lightGrey);
-    }
-    .scheduleCard .topicWrap .topic{
-      width: 70%;
-    }
-    .scheduleCard .placeWrap{
-      padding: 0rem 1.5rem 0 0.5rem;
-      color: var(--fontGrey);
-    }
-    .scheduleCard .placeWrap a i{
-      color: var(--red);
-      font-size: 12px;
-      margin-right: 10px;
-    }
-    /* 展開表格 */
-    .cardToggleBtn{
-      display: none;
-      text-align: center;
-      color: var(--secondRed);
-      font-size: 20px;
-      cursor: pointer;
-    }
-    .cardToggleBtn i{
-      margin-right: 1rem;
-      transition: .3s;
-    }
-    .cardToggleBtn.active i{
-      transform:  rotate(180deg)
-
-    }
-
-    /* 表格 */
-    .contentTwo .content table {
-      background-color: white;
-      padding: 0.25rem;
-      margin-bottom: 86px;
-    }
-    table thead tr th {
-      width: 20%;
-      margin: 0.25rem;
-      margin: 5px;
-      background-color: var(--fontGrey) !important;
-      border-width: 1px 2px 2px 3px;
-      border-style: solid;
-      border-color: #ffffff;
-      text-align: center;
-      color: white;
-    }
-    table tbody td {
-      height: 68px;
-      vertical-align: middle;
-    }
-    .contentTwo .content table p {
-      margin-bottom: 0;
-    }
-    .contentTwo table td.scheduleLink {
-      text-align: center;
-    }
-    .contentTwo table td.scheduleLink a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      color: var(--red);
-      transition: 0.3s;
-    }
-    .contentTwo table td.scheduleLink a:hover {
-      color: var(--darkBlue);
-    }
-    /* 資安區 */
-    .contentThree {
-      margin-bottom: 7rem;
-    }
-    .contentThree  p {
-      line-height: 2rem;
-      margin-bottom: 2rem;
-      color: var(--darkBlue);
-    }
-    .contentThree .imgWrap img{
-       width: 100%;
-       height: 100%;
-       object-fit: cover; 
-    }
-    /* profile */
-    .contentFour {
-      margin-bottom: 5rem;
-    }
-    .profileWrap {
-      position: relative;
-      height: 360px;
-      border: 5px solid var(--red);
-      padding: 86px 6px 80px 228px;
-      margin-left: 121px;
-    }
-    .profileWrap .avatar {
-      position: absolute;
-      height: 360px;
-      width: 310px;
-      left: -121px;
-      top: -2rem;
-    }
-    .profileWrap .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
-    }
-    .profileWrap .profile h3 {
-      font-size: 1.5rem;
-      line-height: 33px;
-      padding: 0;
-      padding-right: 0;
-      padding-left: 2rem;
-      color: var(--darkBlue);
-    }
-    .profileWrap .profile h1 {
-      font-size: 40px;
-      line-height: 54px;
-      font-weight: 400;
-      color: var(--darkBlue);
-    }
-    .contentFour .profileWrap p.subTitle {
-      font-size: 16px;
-      letter-spacing: 0.3rem;
-      color: var(--fontGrey);
-    }
-    /* Footer */
-    footer {
-      position: relative;
-      height: 384px;
-      background-image: url("./images/FooterBg.png");
-    }
-    footer .mainContainer {
-      padding: 80px 160px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    footer p {
-      color: white;
-      margin-bottom: 0.5rem;
-    }
-    footer .brandImg {
-      margin-bottom: 140px;
-    }
-    footer .right p:first-child {
-      margin-bottom: 2rem;
-    }
-    footer .linkWrap {
-      margin-top: 2rem;
-    }
-    .linkWrap a {
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-    }
-    .linkWrap a:not(:first-child) {
-      margin-left: 0.2rem;
-      padding-left: 0.2rem;
-      border-left: 1.5px solid var(--fontGrey);
-    }
-    .linkWrap a i {
-      color: var(--red);
-      margin-right: 6px;
-    }
-    @media (max-width: 1200px) {
-      .mainContainer {
-        padding: 0 2rem;
-      }
-      footer .mainContainer {
-        padding: 80px 2rem;
-      }
-      .formContainer{
-        padding-top: 78px;
-      }
-      .contentOne .demoShow .demoImg {
-        height: 150px;
-        margin-left: -20px;
-        margin-top: 220px;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .contentThree {
-        margin-top: 5rem;
-      }
-      .formContainer {
-      background:linear-gradient( 180deg,
-        #191b28e5 0%, #191b28e5 25%,
-        #F7F7F7 25%, #F7F7F7 100%);
-     }
-    /* RWD nav & Banner */
-      nav {
-        height: 80px;
-      }
-      .banner {
-        margin-top: 80px;
-      }
-      .logoImg {
-        width: 220px;
-        height: 30px;
-      }
-      .logoImg img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .navLink {
-        display: none;
-      }
-      /* 手機版banner */
-      .banner {
-        flex-direction: column;
-        justify-content: start;
-      }
-      .mobileImg {
-        display: block;
-        margin-top: 80px;
-        margin-bottom: 2rem;
-      }
-      .banner .contextImg {
-        display: none;
-      }
-
-      .bannerNav {
-        display: none;
-      }
-      .linkItems {
-        display: block;
-        display: flex;
-        flex-direction: column;
-      }
-      .MBshareLink {
-        display: flex;
-      }
-      /* main一*/
-      .mainContainer {
-        padding: 0 1rem;
-      }
-      .contentOne .mainContainer {
-        padding: 0;
-      }
-      .contentOne .mainContainer {
-        flex-direction: column;
-        justify-content: start;
-      }
-      main.contentOne {
-        padding-bottom: 0;
-      }
-      main.contentOne .demoShow {
-        display: none !important;
-      }
-      .contentOne .content:first-child {
-        padding: 2rem 1rem;
-        width: 100%;
-      }
-      .MbdemoWrap {
-        display: block;
-      }
-      .MbSlickWrap{
-        display: block;
-        margin-bottom: 3rem;
-      }
-      /* 議程資訊 RWD*/
-      .formContainer {
-        padding-top: 3rem;
-      }
-      .subTitleWrap{
-        flex-direction: column;
-      }
-      .contentTwo .content table{
-        display: none;
-      }
-      .scheduleCardWrap {
-        display: flex;
-      }
-      .scheduleCard{
-        display: block;
-      }
-      .cardToggleBtn{
-        display: block;
-      }
-
-      /* profile */
-      .profileWrap {
-        width: 375px;
-        height: 480px;
-        border: 5px solid var(--red);
-        padding: 219px 30px 58px 32px;
-        margin-left: 0px;
-        margin-top: 120px;
-      }
-      .profileWrap .avatar {
-        left: 50%;
-        top: -181px;
-        transform: translateX(-50%);
-      }
-      .contentFour{
-        padding-bottom: 2rem;
-        margin-bottom: 0rem;
-      }
-      /* footer */
-      footer .mainContainer{
-        flex-direction: column;
-        padding: 40px 0.5rem;
-      }
-      footer .right {
-        text-align: center;
-      }
-      footer .copyRight{
-        white-space:nowrap;
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      footer .brandImg {
-        margin-bottom: 2rem;
-        width: 175px;
-        height: 24px;
-      }
-      footer .brandImg img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      footer .linkWrap {
-        margin: 1rem 0;
-      }
-      .linkWrap a:not(:first-child) {
-        margin-left: 0.15rem;
-        padding-left: 0.15rem;
-      }
-    }
-    @media (max-width: 500px) {
-      
-      .contentFour .mainContainer{
-        padding: 0;
-      }
-      .MbdemoWrap .textWrap {
-        min-width: 180px;
-      }
-      .profileWrap {
-        width: 100%;
-      }
-      /* footer */
-      footer *>p{
-        font-size: 14px;
-      }
-      footer *>a{
-        font-size: 12px;
-      }
-      footer .mainContainer{
-        align-items: start;
-      }
-      footer .right {
-        text-align: left;
-      }      
-    }
-
-  </style> -->
-  <body>
+ <body>
     <nav class="d-flex justify-content-between align-items-end">
       <div class="logoImg">
         <img src="./images/NavLogo.png" alt="" />
@@ -777,10 +64,11 @@
       <div class="mobileImg">
         <img src="./images/mobile/MobileBanner.png" alt="" />
       </div>
+      <!-- 手機版跳轉link -->
       <div class="linkItems">
-        <a href="#contentOne">展示重點</a>
-        <a href="#contentTwo">議程資訊</a>
-        <a href="#contentThree">台灣資安館</a>
+        <a href="#mbcontentOne">展示重點</a>
+        <a href="#mbcontentTwo">議程資訊</a>
+        <a href="#mbcontentThree">台灣資安館</a>
         <a
           href="https://signupcybersec.ithome.com.tw/signup/2022?_ga=2.113164036.1612543763.1658486198-350710575.1658114719"
           target="_blank"
@@ -806,6 +94,7 @@
       </div>
     </div>
 
+    <!-- 網頁版navLink -->
     <div class="bannerNav justify-content-end" >
       <a href="#contentOne" class="contentOneBtn">展示重點</a>
       <a href="#contentTwo" >議程資訊</a>
@@ -816,10 +105,9 @@
         >線上報名</a
       >
     </div>
-    
-
+  
     <!-- 展示重點 -->
-    <main class="contentOne" >
+    <main class="contentOne" id="mbcontentOne">
       <div class="mainContainer d-flex">
         <div class="content">
           <h3>展示重點</h3>
@@ -855,39 +143,54 @@
               <li class="slide">
                   <img src="./images/demoImg2.jpg" alt="" />
               <div>
-              <li class="slide">
+              <li class="slide" >
                   <img src="./images/demoImg3.jpg" alt="" />
               </li>
             </div>
           </div>
         </div>
 
-        <!-- web版 -->
+        <!-- web版 輪播-->
         <div class="content demoShow d-flex" >
           <div class="demoSchedule">
             <img src="./images/showSchedule.png" alt="" />
           </div>
-          <!-- <div class="demoImg">
-            <img src="./images/demoImg1.jpg" alt="" />
-          </div> -->
-          <!-- <div class="slider-block">
-            <div class="mobileDemoSlider">
-              <li class="slide">
-                  <img src="./images/demoImg1.jpg" alt="" />
-              </li>
-              <li class="slide">
-                  <img src="./images/demoImg2.jpg" alt="" />
-              <div>
-              <li class="slide">
-                  <img src="./images/demoImg3.jpg" alt="" />
-              </li>
+          <!-- 輪播demo -->
+          <div
+              id="carouselExampleSlidesOnly"
+              class="carousel slide demoImg"
+              data-mdb-ride="carousel"
+              data-mdb-pause="hover"
+            >
+            <div class="carousel-inner">
+              <div class="carousel-item active imgWrap">
+                <img
+                  src="./images/demoImg1.jpg" 
+                  class="d-block w-100"
+                  alt=""
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./images/demoImg2.jpg" 
+                  class="d-block w-100"
+                  alt=""
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./images/demoImg3.jpg" 
+                  class="d-block w-100"
+                  alt=""
+                />
+              </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </main>
     <!-- 議程資訊 -->
-    <main class="contentTwo" >
+    <main class="contentTwo" id="mbcontentTwo">
       <div class="formContainer mainContainer">
         <div class="content">
           <h3 class="titleWhite">議程資訊</h3>
@@ -1247,7 +550,7 @@
               </div>
             </div>
           </div>
-          <div class="cardToggleBtn">
+          <div class="cardToggleBtn" id="mbcontentThree">
             <p class="toggleText">
               <i class="fa-solid fa-chevron-down"></i>展開議程列表
             </p>
@@ -1453,7 +756,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="contentThree" id="contentThree">
+          <div class="contentThree" id="contentThree" >
             <h3>台灣資安館</h3>
             <p>
               經濟部今年亦將同步在 Cybersec 資安大會中設立臺灣資安館，TXOne 也受邀參加，並將在臺灣資安館中 「工控安全」主題展區，以SEMI
@@ -1535,6 +838,11 @@
     <script type="text/javascript" src="./js/wow.min.js"></script>
     <script type="text/javascript" src="./js/slick.min.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
     
     <script>
       $(".mobileDemoSlider").slick({

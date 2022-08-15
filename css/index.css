@@ -115,8 +115,6 @@ ion-icon {
 .banner {
   margin-top: 100px;
   height: 744px;
-  /* background-color: antiquewhite; */
-  /* background: url("./images/BannerBg.png") center top no-repeat; */
   background: url(./../images/BannerBg.png) center top no-repeat;
   background-size: cover;
   display: flex;
@@ -202,15 +200,24 @@ main.contentOne {
 }
 .MbdemoWrap .textWrap p {
   line-height: 2rem;
-  border-left: 1px solid white;
   margin-bottom: 0;
+  position: relative;
+}
+.MbdemoWrap .textWrap p::before {
+  content: " ";
+  width: 1px;
+  height: 1rem;
+  background-color: white;
+  position: absolute;
+  top: 55%;
+  left: 8px;
+  transform: translateY(-50%);
 }
 /* 手機版輪播牆 */
 .MbSlickWrap {
   margin-top: -98px;
   display: none;
   width: 100%;
-  /* height: 280px; */
 }
 .MbSlickWrap .slide {
   width: 300px;
@@ -245,22 +252,26 @@ main.contentOne {
   color: var(--fontGrey);
 }
 .contentOne .demoShow .demoImg {
-  /* min-width: 250px; */
   width: 312px;
   height: 250px;
   margin-left: -20px;
   margin-top: 92px;
+  overflow: hidden;
 }
-.contentOne .demoShow .demoImg img {
+.demoImg .carousel-item {
+  width: 312px;
+  height: 250px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 1);
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+.demoShow .carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+  /* filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25)); */
+  /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); */
 }
 /* 議程資訊 */
-.contentTwo {
-  /* position: relative; */
-}
 .contentTwo .content .titleWhite {
   color: #ffffff;
 }
@@ -448,6 +459,7 @@ table tbody td {
   margin-bottom: 5rem;
 }
 .profileWrap {
+  width: 588px;
   position: relative;
   height: 360px;
   border: 5px solid var(--red);
@@ -541,11 +553,11 @@ footer .linkWrap {
   .formContainer {
     padding-top: 78px;
   }
-  .contentOne .demoShow .demoImg {
+  /* .contentOne .demoShow .demoImg {
     height: 150px;
     margin-left: -20px;
     margin-top: 220px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
@@ -618,6 +630,7 @@ footer .linkWrap {
   }
   main.contentOne {
     padding-bottom: 0;
+    padding-top: 1rem;
   }
   main.contentOne .demoShow {
     display: none !important;

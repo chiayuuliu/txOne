@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      border: 1px solid lavender;
+    }
+    .imgWrap {
+      width: 310px;
+      height: 250px;
+    }
+    .carousel-item {
+      width: 310px;
+      height: 250px;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+  <body>
+    <!-- data-mdb-interval="" -->
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide imgWrap"
+      data-mdb-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active imgBox">
+          <img
+            src="./images/demoImg3.jpg"
+            class="d-block w-100"
+            alt="Wild Landscape"
+          />
+        </div>
+        <div class="carousel-item">
+          <img src="./images/demoImg3.jpg" class="d-block w-100" alt="Camera" />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./images/demoImg3.jpg"
+            class="d-block w-100"
+            alt="Exotic Fruits"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
+  </body>
+</html>
