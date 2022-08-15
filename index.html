@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="./css/index.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- MDB -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
@@ -109,7 +111,7 @@
     <!-- 展示重點 -->
     <main class="contentOne" id="mbcontentOne">
       <div class="mainContainer d-flex">
-        <div class="content">
+        <div class="content" data-aos="fade-up-right">
           <h3>展示重點</h3>
           <p class="subTitle">TXOne Networks 保護智慧工業環境</p>
           <p>
@@ -151,7 +153,7 @@
         </div>
 
         <!-- web版 輪播-->
-        <div class="content demoShow d-flex" >
+        <div class="content demoShow d-flex" data-aos="fade-up-left" >
           <div class="demoSchedule">
             <img src="./images/showSchedule.png" alt="" />
           </div>
@@ -192,7 +194,7 @@
     <!-- 議程資訊 -->
     <main class="contentTwo" id="mbcontentTwo">
       <div class="formContainer mainContainer">
-        <div class="content">
+        <div class="content" >
           <h3 class="titleWhite">議程資訊</h3>
           <div class="subTitleWrap d-flex mb-3">
             <p class="subTitle">TXOne 12場資安專題演講</p>
@@ -557,7 +559,7 @@
           </div>
 
           <!-- web table -->
-          <table class="table">
+          <table class="table" data-aos="zoom-in-up">
             <thead>
               <tr>
                 <th scope="col">時間</th>
@@ -756,7 +758,8 @@
               </tr>
             </tbody>
           </table>
-          <div class="contentThree" id="contentThree" >
+          <div class="contentThree" id="contentThree" data-aos="fade-up"
+          data-aos-duration="1500" >
             <h3>台灣資安館</h3>
             <p>
               經濟部今年亦將同步在 Cybersec 資安大會中設立臺灣資安館，TXOne 也受邀參加，並將在臺灣資安館中 「工控安全」主題展區，以SEMI
@@ -770,11 +773,11 @@
         </div>
         <main class="contentFour" >
           <div class=" d-flex justify-content-center">
-            <div class="profileWrap">
-              <div class="avatar">
+            <div class="profileWrap" data-aos="fade-down">
+              <div class="avatar" data-aos="fade-right">
                 <img src="./images/Avatar.jpg" alt="" />
               </div>
-              <div class="profile">
+              <div class="profile" data-aos="fade-left">
                 <h3>TXOne 半導體資安專家</h3>
                 <h1 class="mb-3">劉大川</h1>
                 <p class="subTitle">
@@ -843,7 +846,11 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
     ></script>
-    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script>
       $(".mobileDemoSlider").slick({
         centerMode: true,
@@ -858,18 +865,6 @@
         dots: false,
         variableWidth: true,
       });
-
-      $('.webDemoSlider').slick({
-        dots: true,
-        slidesToShow: 1,
-        infinite: true,
-        autoplaySpeed: 2000,
-        fade: true,
-        cssEase: 'linear',
-        dots: false,
-        variableWidth: true,
-      });
-
     </script>
   </body>
 </html>
