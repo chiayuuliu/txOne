@@ -22,11 +22,12 @@
     <!-- slick -->
     <link rel="stylesheet" href="./css/animate.min.css" />
     <link rel="stylesheet" href="./css/slick.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>txOne</title>
   </head>
-  <style>
+  <!-- <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
     /* classname 小駝峰寫法 */
     * {
@@ -193,7 +194,6 @@
     }
     /* 展示重點 */
     main.contentOne {
-      /* height: 504px; */
       padding: 5rem 0rem;
       background-color: var(--bgGrey);
     }
@@ -201,7 +201,6 @@
       justify-content: space-between;
     }
     .contentOne .content {
-      /* padding: 5rem 0rem; */
       width: 48%;
     }
     /* --手機版 展示重點-- */
@@ -343,9 +342,6 @@
       overflow: hidden;
       justify-content: start;
     }
-    .scheduleCardWrap.close .scheduleCard{
-      /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); */
-    }
     .cardToggleBtn.open i{
       transform: rotate(180deg) translateY(-5%);;
     }
@@ -355,7 +351,7 @@
       min-width: 343px;
       height: 175px;
       background-color: white;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     }
     .scheduleCard div{
       display: flex;
@@ -478,7 +474,6 @@
     }
     .profileWrap {
       position: relative;
-
       height: 360px;
       border: 5px solid var(--red);
       padding: 86px 6px 80px 228px;
@@ -546,8 +541,8 @@
       font-size: 1rem;
     }
     .linkWrap a:not(:first-child) {
-      margin-left: 0.5rem;
-      padding-left: 0.5rem;
+      margin-left: 0.2rem;
+      padding-left: 0.2rem;
       border-left: 1.5px solid var(--fontGrey);
     }
     .linkWrap a i {
@@ -572,6 +567,14 @@
     }
     
     @media (max-width: 768px) {
+      .contentThree {
+        margin-top: 5rem;
+      }
+      .formContainer {
+      background:linear-gradient( 180deg,
+        #191b28e5 0%, #191b28e5 25%,
+        #F7F7F7 25%, #F7F7F7 100%);
+     }
     /* RWD nav & Banner */
       nav {
         height: 80px;
@@ -626,10 +629,9 @@
       .contentOne .mainContainer {
         flex-direction: column;
         justify-content: start;
-        min-height: 1003px;
       }
       main.contentOne {
-        /* height: 1042px; */
+        padding-bottom: 0;
       }
       main.contentOne .demoShow {
         display: none !important;
@@ -680,12 +682,13 @@
         transform: translateX(-50%);
       }
       .contentFour{
-        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 0rem;
       }
       /* footer */
       footer .mainContainer{
         flex-direction: column;
-        padding: 40px 1rem;
+        padding: 40px 0.5rem;
       }
       footer .right {
         text-align: center;
@@ -711,14 +714,12 @@
         margin: 1rem 0;
       }
       .linkWrap a:not(:first-child) {
-        margin-left: 0.25rem;
-        padding-left: 0.25rem;
+        margin-left: 0.15rem;
+        padding-left: 0.15rem;
       }
     }
     @media (max-width: 500px) {
-      main.contentOne {
-        padding-bottom: 0;
-      }
+      
       .contentFour .mainContainer{
         padding: 0;
       }
@@ -743,7 +744,7 @@
       }      
     }
 
-  </style>
+  </style> -->
   <body>
     <nav class="d-flex justify-content-between align-items-end">
       <div class="logoImg">
@@ -922,7 +923,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   4B 展區會議室
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/720 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/720 " target="_blank" target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -951,7 +952,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                     702
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/698 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/698 " target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -980,7 +981,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   701D 
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/700 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/700 "target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1009,7 +1010,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   4B 展區會議室
                 </p>
-                <a href="">
+                <a href="" target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1038,7 +1039,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   701D
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/688 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/688 " target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1066,7 +1067,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   4A 展區會議室
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/771 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/771 " target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1094,7 +1095,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   701C
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/687">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/687" target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1124,7 +1125,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   4A 展區會議室
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/736 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/736 " target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1154,7 +1155,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   703
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/772">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/772" target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1182,7 +1183,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   701D
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/691 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/691 " target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1211,7 +1212,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   703
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/685 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/685 " target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1239,7 +1240,7 @@
                   <i class="fa-solid fa-location-dot"></i>
                   701F
                 </p>
-                <a href="https://cyber.ithome.com.tw/2022/session-page/694 ">
+                <a href="https://cyber.ithome.com.tw/2022/session-page/694 " target="_blank">
                   <i class="fa-solid fa-up-right-from-square"></i
                   >詳細資訊
                 </a>
@@ -1247,7 +1248,7 @@
             </div>
           </div>
           <div class="cardToggleBtn">
-            <p>
+            <p class="toggleText">
               <i class="fa-solid fa-chevron-down"></i>展開議程列表
             </p>
           </div>
@@ -1482,25 +1483,8 @@
           </div>
         </main> 
       </div>
-      <!-- <main class="contentFour">
-        <div class=" d-flex justify-content-center">
-          <div class="profileWrap">
-            <div class="avatar">
-              <img src="./images/Avatar.jpg" alt="" />
-            </div>
-            <div class="profile">
-              <h3>TXOne 半導體資安專家</h3>
-              <h1 class="mb-3">劉大川</h1>
-              <p class="subTitle">
-                TXOne Networks <br />
-                首席解決方案架構師
-              </p>
-            </div>
-          </div>
-        </div>
-      </main> -->
-      
     </main>
+
     <!-- Footer -->
     <footer>
       <div class="mainContainer d-flex">

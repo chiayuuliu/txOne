@@ -25,7 +25,6 @@ function copyURI(e) {
   );
 }
 // scroll到指定位置
-
 contentOneBtn.addEventListener("click", () => {
   const contentOne = document.querySelector(".contentOne");
   contentOne.scrollIntoView({ behavior: "smooth", block: "end", inline: "start" })
@@ -33,7 +32,12 @@ contentOneBtn.addEventListener("click", () => {
 
 // 
 ToggleBtn.addEventListener("click", () => {
-  // ToggleBtn.innerHTML = '<p><i class="fa-solid fa-chevron-down"></i>收合議程列表</p >';
+  const toggleText = document.querySelector(".toggleText");
   CardWrap.classList.toggle('close')
   ToggleBtn.classList.toggle('open')
+  if (ToggleBtn.classList.contains("open")) {
+    toggleText.innerHTML = '<i class="fa-solid fa-chevron-down"></i>收起議程列表'
+  } else {
+    toggleText.innerHTML = '<i class="fa-solid fa-chevron-down"></i>展開議程列表'
+  }
 })
