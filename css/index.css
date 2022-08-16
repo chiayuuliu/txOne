@@ -78,6 +78,8 @@ nav {
   justify-content: center;
   align-items: center;
 }
+.MBshareLink button:hover,
+.navLink button:hover,
 .MBshareLink a:hover,
 .navLink a:hover {
   background-color: red;
@@ -111,6 +113,9 @@ ion-icon {
   padding: 13px 26px;
   text-align: center;
 }
+.linkItems a:hover {
+  color: white;
+}
 /* webBanner */
 .banner {
   margin-top: 100px;
@@ -139,12 +144,15 @@ ion-icon {
 }
 .bannerNav a {
   color: white;
-  text-decoration: none;
+  text-decoration: none !important;
   height: 100%;
   display: block;
   padding: 0 26px;
   line-height: 3rem;
   transition: 0.3s;
+}
+.bannerNav a:hover {
+  color: white;
 }
 .linkItems a:last-child,
 .bannerNav a:last-child {
@@ -528,6 +536,9 @@ footer .linkWrap {
   font-size: 1rem;
   position: relative;
   margin-right: 1rem;
+}
+.linkWrap a:hover {
+  color: white;
 }
 .linkWrap a:not(:first-child):before {
   content: "";
