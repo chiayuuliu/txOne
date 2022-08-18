@@ -3,6 +3,8 @@ const contentOneBtn = document.querySelector(".contentOneBtn");
 // 手機版卡片開合
 const CardWrap = document.querySelector(".scheduleCardWrap");
 const ToggleBtn = document.querySelector(".cardToggleBtn");
+// 提示訊息
+const toolTip = document.querySelector(".toolTip");
 
 // nav 滑動固定
 window.addEventListener("scroll", function () {
@@ -12,12 +14,18 @@ window.addEventListener("scroll", function () {
     Bannernav.classList.remove("fixed");
   }
 });
+
+// 手寫複製成功訊息
 // 複製URL
 function copyURI(e) {
   e.preventDefault();
   navigator.clipboard.writeText(e.target.getAttribute("data-value")).then(
     () => {
       console.log("ok");
+      toolTip.style.display = "block"
+      setTimeout(() => {
+        toolTip.style.display = "none"
+      }, 1000);
     },
     () => {
       console.log("fail");
@@ -30,7 +38,6 @@ contentOneBtn.addEventListener("click", () => {
   contentOne.scrollIntoView({ behavior: "smooth", block: "end", inline: "start" })
 })
 
-// 
 ToggleBtn.addEventListener("click", () => {
   const toggleText = document.querySelector(".toggleText");
   CardWrap.classList.toggle('close')

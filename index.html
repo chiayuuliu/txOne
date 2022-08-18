@@ -48,7 +48,9 @@
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
         <!--  TODO: 要改網址 -->
+        
         <button 
+        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"
         data-value="http://127.0.0.1:5500/index.html" 
         onclick="copyURI(event)">
           <ion-icon name="link-outline" 
@@ -56,6 +58,9 @@
           onclick="copyURI(event)"
           >
           </ion-icon>
+          <div class="toolTip">
+            copied
+          </div>
         </button>
       </div>
     </nav>
@@ -93,6 +98,7 @@
         >
         </ion-icon>
         </button>
+        
       </div>
     </div>
 
@@ -851,6 +857,7 @@
     <script>
       AOS.init();
     </script>
+    <!-- Slick -->
     <script>
       $(".mobileDemoSlider").slick({
         centerMode: true,

@@ -54,8 +54,30 @@ nav {
 }
 .navLink {
   display: flex;
+  position: relative;
 }
-
+.navLink .toolTip {
+  background-color: var(--darkBlue);
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: -140%;
+  padding: 0 5px;
+  border-radius: 3px;
+  display: none;
+  transition: 0.3s;
+}
+.navLink .toolTip::after {
+  content: "";
+  position: absolute;
+  z-index: 12;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--darkBlue);
+  border-left: 6px solid transparent;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .navLink button,
 .navLink a {
   background: #191b2833;
@@ -70,6 +92,7 @@ nav {
   margin-right: 1rem;
   transition: 0.3s;
 }
+
 .MBshareLink button,
 .navLink button {
   border: none;
