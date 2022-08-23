@@ -150,6 +150,8 @@ ion-icon {
 }
 .banner .contextImg {
   width: 60%;
+  margin: auto;
+  max-width: 900px;
 }
 .banner .contextImg img {
   width: 100%;
@@ -192,6 +194,10 @@ ion-icon {
   z-index: 10;
 }
 /* 展示重點 */
+.mainContainer {
+  max-width: 1440px;
+  margin: auto;
+}
 main.contentOne {
   padding: 5rem 0rem;
   background-color: var(--bgGrey);
@@ -316,7 +322,21 @@ main.contentOne {
 .mainContainer {
   padding: 0 160px;
 }
-.formContainer {
+/* .formContainer {
+  position: relative;
+  z-index: 1;
+  padding-top: 86px;
+  background: linear-gradient(
+    180deg,
+    #191b28e5 0%,
+    #191b28e5 25%,
+    #f7f7f7 25%,
+    #f7f7f7 67%,
+    #ffffff 67%,
+    #ffffff 100%
+  );
+} */
+.contentTwo {
   position: relative;
   z-index: 1;
   padding-top: 86px;
@@ -330,7 +350,6 @@ main.contentOne {
     #ffffff 100%
   );
 }
-
 .contentTwo .content p.subTitle {
   color: white;
 }
@@ -489,10 +508,18 @@ table tbody td {
   margin-bottom: 2rem;
   color: var(--darkBlue);
 }
+.contentThree .imgWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .contentThree .imgWrap img {
-  width: 100%;
+  width: 70%;
   height: 100%;
   object-fit: cover;
+}
+.contentThree .imgWrap .mbSecImg {
+  display: none;
 }
 /* profile */
 .contentFour {
@@ -722,6 +749,13 @@ footer .linkWrap {
     display: block;
   }
   .cardToggleBtn {
+    display: block;
+  }
+  /* 資安館 */
+  .contentThree .imgWrap .webSecImg {
+    display: none;
+  }
+  .contentThree .imgWrap .mbSecImg {
     display: block;
   }
 

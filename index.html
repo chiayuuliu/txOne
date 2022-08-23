@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="./images/Favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- BS CSS -->
     <link
@@ -32,7 +33,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
       rel="stylesheet"
     />
-    <title>txOne</title>
+    <!-- meta  Description-->
+    <meta name="description" content="現場展演 TXOne 解決方案基於零信任原則，如何保護智慧工業環境，確保 OT 場域 產線不中斷。12 場資安專題演講，分享最新的工控安全與資安威脅議題，歡迎參 與。">
+    <title>TXOne 睿控網安在台灣資安年度盛會 CYBERSEC 2022!</title>
   </head>
  <body>
     <nav class="d-flex justify-content-between align-items-end">
@@ -40,21 +43,20 @@
         <img src="./images/NavLogo.png" alt="" />
       </a>
       <div class="navLink" >
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.google.com.tw/?hl=zh_TW">
+        <!-- Fb 分享 -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://campaign.txone.com/cybersec2022" target="_blank">
           <i class="fa-brands fa-facebook-f"></i>
         </a>
-        <!-- TODO:linkin 分享 -->
-        <a href="">
+        <!-- linkin 分享 -->
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://campaign.txone.com/cybersec2022" target="_blank">
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
-        <!--  TODO: 要改網址 -->
-        
         <button 
         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"
-        data-value="http://127.0.0.1:5500/index.html" 
+        data-value="https://campaign.txone.com/cybersec2022" 
         onclick="copyURI(event)">
           <ion-icon name="link-outline" 
-          data-value="http://127.0.0.1:5500/index.html" 
+          data-value="https://campaign.txone.com/cybersec2022" 
           onclick="copyURI(event)"
           >
           </ion-icon>
@@ -84,21 +86,22 @@
       </div>
       <!-- 手機版分享連結  -->
       <div class="MBshareLink">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=你要分享的網址">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://campaign.txone.com/cybersec2022" target="_blank">
           <i class="fa-brands fa-facebook-f"></i>
         </a>
-        <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-        <!--  TODO:改網址 -->
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://campaign.txone.com/cybersec2022" target="_blank">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
         <button 
-        data-value="http://127.0.0.1:5500/index.html" 
+        id="mbcontentOne"
+        data-value="https://campaign.txone.com/cybersec2022" 
         onclick="copyURI(event)">
         <ion-icon name="link-outline" 
-        data-value="http://127.0.0.1:5500/index.html" 
+        data-value="https://campaign.txone.com/cybersec2022" 
         onclick="copyURI(event)"
         >
         </ion-icon>
         </button>
-        
       </div>
     </div>
 
@@ -115,7 +118,7 @@
     </div>
   
     <!-- 展示重點 -->
-    <main class="contentOne" id="mbcontentOne">
+    <main class="contentOne" >
       <div class="mainContainer d-flex">
         <div class="content" data-aos="fade-up-right">
           <h3>展示重點</h3>
@@ -146,20 +149,20 @@
           <div class="slider-block">
             <div class="mobileDemoSlider">
               <li class="slide">
-                  <img src="./images/demoImg1.jpg" alt="" />
+                <img src="./images/demoImg1.jpg" alt="" />
               </li>
               <li class="slide">
-                  <img src="./images/demoImg2.jpg" alt="" />
+                <img src="./images/demoImg2.jpg" alt="" />
               <div>
               <li class="slide" >
-                  <img src="./images/demoImg3.jpg" alt="" />
+                <img src="./images/demoImg3.jpg" alt="" />
               </li>
             </div>
           </div>
         </div>
 
         <!-- web版 輪播-->
-        <div class="content demoShow d-flex" data-aos="fade-up-left" >
+        <div class="content demoShow d-flex justify-content-center" data-aos="fade-up-left" >
           <div class="demoSchedule">
             <img src="./images/showSchedule.png" alt="" />
           </div>
@@ -198,7 +201,7 @@
       </div>
     </main>
     <!-- 議程資訊 -->
-    <main class="contentTwo" id="mbcontentTwo">
+    <main class="contentTwo" id="mbcontentTwo" >
       <div class="formContainer mainContainer">
         <div class="content" >
           <h3 class="titleWhite">議程資訊</h3>
@@ -764,6 +767,7 @@
               </tr>
             </tbody>
           </table>
+          <!-- 資安館 -->
           <div class="contentThree" id="contentThree" data-aos="fade-up"
           data-aos-duration="1000" >
             <h3>台灣資安館</h3>
@@ -772,7 +776,9 @@
               E187半導體資安標準應用於生產設備生命週期安全防護做為展示重點。展示精華包含從進廠前(掃毒)、設備運作(端點、隔離) 至監控，透過 TXOne 完整工控資安解決方案，將E187實務落實至生產設備各階段。
             </p>
             <div class="imgWrap">
-              <img src="./images/Security.png" alt="" />
+              <img class="webSecImg" src="./images/Security.gif" alt="" />
+              <!-- 手機版 -->
+              <img class="mbSecImg" src="./images/mobile/Security.gif" alt="" />
             </div>
           </div>
           
