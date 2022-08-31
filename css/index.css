@@ -74,13 +74,14 @@ nav .logoImg img {
   display: flex;
   align-items: flex-end;
   position: relative;
+  /* border: 1px solid lavender; */
 }
 .navLink .toolTip {
   background-color: var(--darkBlue);
   color: white;
   font-size: 12px;
   position: absolute;
-  top: -140%;
+  top: 0%;
   padding: 0 5px;
   border-radius: 3px;
   display: none;
