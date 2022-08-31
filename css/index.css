@@ -228,7 +228,7 @@ main.contentOne {
 .contentOne .content {
   width: 48%;
 }
-.demoSchedule {
+.content.demoShow .demoSchedule {
   width: 250px;
   height: 250px;
 }
@@ -654,7 +654,7 @@ footer .linkWrap {
     bottom: 0;
     right: 0;
   }
-  .demoSchedule {
+  .content.demoShow .demoSchedule {
     position: absolute;
     left: 0;
     top: 0;
@@ -662,18 +662,6 @@ footer .linkWrap {
 }
 
 @media (max-width: 768px) {
-  .contentThree {
-    margin-top: 5rem;
-  }
-  .formContainer {
-    background: linear-gradient(
-      180deg,
-      #191b28e5 0%,
-      #191b28e5 25%,
-      #f7f7f7 25%,
-      #f7f7f7 100%
-    );
-  }
   /* RWD nav & Banner */
   nav {
     height: 80px;
@@ -721,6 +709,21 @@ footer .linkWrap {
     display: flex;
   }
   /* main一*/
+  .contentTwo {
+    padding-top: 0;
+  }
+  .contentThree {
+    margin-top: 5rem;
+  }
+  .formContainer {
+    background: linear-gradient(
+      180deg,
+      #191b28e5 0%,
+      #191b28e5 25%,
+      #f7f7f7 25%,
+      #f7f7f7 100%
+    );
+  }
   .mainContainer {
     padding: 0 1rem;
   }
