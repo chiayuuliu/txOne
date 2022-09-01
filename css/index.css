@@ -378,14 +378,16 @@ main.contentOne {
   text-decoration: none;
   color: white;
 }
+.subTitleWrap a:hover {
+  color: white;
+}
+
 .subTitleWrap a i {
   color: var(--red);
   margin-right: 0.5rem;
   transition: 0.3s;
 }
-.subTitleWrap a:hover i {
-  color: white;
-}
+
 /* 手機版資訊card 展開*/
 .scheduleCardWrap {
   width: 100%;
@@ -591,9 +593,14 @@ footer .mainContainer {
   align-items: center;
   justify-content: space-between;
 }
+footer a,
 footer p {
   color: white;
   margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+footer a:hover {
+  color: white;
 }
 footer .brandImg {
   margin-bottom: 140px;
