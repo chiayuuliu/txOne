@@ -21,14 +21,13 @@ function copyURI(e) {
   e.preventDefault();
   navigator.clipboard.writeText(e.target.getAttribute("data-value")).then(
     () => {
-      console.log("ok");
       toolTip.style.display = "block"
       setTimeout(() => {
         toolTip.style.display = "none"
       }, 1000);
     },
     () => {
-      console.log("fail");
+      // console.log("fail");
     }
   );
 }
