@@ -47,3 +47,6 @@ ToggleBtn.addEventListener("click", () => {
     toggleText.innerHTML = '<i class="fa-solid fa-chevron-down"></i>展開議程列表'
   }
 })
+
+var _url = window.location.href;
+console.log(window.location.href)
